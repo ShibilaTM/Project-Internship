@@ -35,9 +35,15 @@ const userSchema = new Schema({
             message: 'Password must be 8-12 characters and include at least one uppercase letter, one lowercase letter, and one digit'
         }
     },
-    confirmpassword: {
-        type:String,
-        required:true
+    phonenumber:{
+        type:Number,
+        required:true,
+        validate:{
+            validator:function(value){
+                return  /^\d{10}$/.test(value);
+            },
+            message:'phone number should be valid'
+        }
     }
 });
 

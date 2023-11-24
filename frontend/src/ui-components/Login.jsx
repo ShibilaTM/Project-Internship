@@ -5,7 +5,7 @@ import { Avatar } from '@mui/material'
 import LockPersonIcon from '@mui/icons-material/LockPerson';
 import axios from 'axios'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+
 
 const Login = () => {
     const [user,setUser] = useState({
@@ -19,23 +19,20 @@ const inputHandler=(e)=>{
       })
 }
 
-const navigate = useNavigate();
+
 
 const addHandler = async (e) => {
   try {
-    const result = await axios.post('http://localhost:4000/user/login', user,);
-
-    if (result.data.status === 'success') {
-      if (result.data.role === 'employee') {
-        console.log(result.data.role);
-        navigate('/student'); // Navigate to employee home
-      } else if (result.data.role === 'admin') {
-        navigate('/home'); // Navigate to admin home
+     axios.post('http://127.0.0.1:4000/user/login', user)
+     .then((res)=>{
+      alert(res.data.message)
+      if(res.data.message =='success'){
+        sessionStorage.setItem('userToken',res.data.token)
+        console.log('successfully logged in')
       }
-    } else {
-      // Handle login failure
-      console.log(result.data);
-    }
+     })
+
+   
   } catch (err) {
     console.log(err);
   }
@@ -52,7 +49,7 @@ const addHandler = async (e) => {
         </Grid>
      
     <br />
-  <TextField variant='outlined' label='Username/email' name='email' onChange={inputHandler} fullWidth/>
+  <TextField variant='outlined' label='email' name='email' onChange={inputHandler} fullWidth/>
     <br /><br />
      <TextField variant='outlined' label='Password' name='password' type='password' onChange={inputHandler} fullWidth/>
     <br /><br />
