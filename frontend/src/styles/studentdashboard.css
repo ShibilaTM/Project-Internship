@@ -1,0 +1,17 @@
+/* Default styles for all screens */
+
+body {
+    background-color: #dddddd;
+}
+
+.subheadingofthetypography {}
+
+
+/* Responsive styles for screens with a width of 600px or less */
+@media (max-width: 600px) {}
+
+/* Responsive styles for screens with a width between 601px and 1024px */
+@media (min-width: 601px) and (max-width: 1024px) {}
+
+/* Responsive styles for screens with a minimum width of 1025px */
+@media (min-width: 1025px) {}
