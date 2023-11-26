@@ -1,5 +1,5 @@
 
-import {Button,  Grid,  TextField, Typography} from '@mui/material'
+import {Button,  Grid,  TextField } from '@mui/material'
 import { Paper } from '@mui/material'
 import { Avatar } from '@mui/material'
 import LockPersonIcon from '@mui/icons-material/LockPerson';
@@ -26,7 +26,7 @@ const addHandler = async (e) => {
      axios.post('http://127.0.0.1:4000/user/login', user)
      .then((res)=>{
       alert(res.data.message)
-      if(res.data.message =='success'){
+      if(res.data.message ==='success'){
         sessionStorage.setItem('userToken',res.data.token)
         console.log('successfully logged in')
       }
