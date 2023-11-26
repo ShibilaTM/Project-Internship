@@ -1,0 +1,201 @@
+/* Default styles for all screens */
+body {
+    font-size: 16px;
+}
+
+.ImageoftheIntershippage {
+    height: 400px;
+    width: 400px;
+    justify-content: end;
+
+}
+
+.paraoftheIntershippage {
+    line-height: 30px;
+    font-size: larger;
+    ;
+}
+
+.containeroftheInternshippage {
+    margin-left: 100px;
+    margin-right: 100px
+}
+
+.buttonoftheIntershippage {
+    text-align: end;
+    margin-left: 1000px;
+    height: 35px;
+    width: fit-content;
+    font-size: medium;
+}
+
+.h1oftheInternshippage {
+    text-align: center;
+}
+
+.BackbuttonoftheIntershippage {
+    font-size: medium;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive styles for screens with a width of 600px or less */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    /* Additional styles for smaller screens */
+    .container {
+        width: 100%;
+        /* Full width on smaller screens */
+    }
+
+    /* body {
+        background-color: red;
+    } */
+
+    .ImageoftheIntershippage {
+        height: 300px;
+        width: 300px;
+
+
+
+    }
+
+    .paraoftheIntershippage {
+        padding-top: 50px;
+        line-height: 30px;
+        font-size: larger;
+    }
+
+    .containeroftheInternshippage {
+        margin-left: 100px;
+        margin-right: 100px
+    }
+
+    .buttonoftheIntershippage {
+        height: 35px;
+        width: fit-content;
+        margin-left: 30px;
+        margin-top: 20px;
+
+    }
+
+    .h1oftheInternshippage {
+        text-align: center;
+    }
+
+
+
+}
+
+
+
+
+
+
+
+/* Responsive styles for screens with a width between 601px and 1024px */
+@media (min-width: 601px) and (max-width: 1024px) {
+    /* body {
+        font-size: 18px;
+        background-color: blue;
+    } */
+
+    .ImageoftheIntershippage {
+        height: 400px;
+        width: 400px;
+
+    }
+
+    .paraoftheIntershippage {
+        padding-top: 50px;
+        line-height: 30px;
+        font-size: larger;
+    }
+
+    .containeroftheInternshippage {
+        margin-left: 100px;
+        margin-right: 100px
+    }
+
+    .buttonoftheIntershippage {
+        text-align: end;
+        margin-left: 150px;
+        height: 35px;
+        width: fit-content;
+    }
+
+    .h1oftheInternshippage {
+        text-align: center;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+/* Responsive styles for screens with a minimum width of 1025px */
+@media (min-width: 1025px) {
+    body {
+        font-size: 20px;
+        line-height: 30px;
+        font-size: larger;
+    }
+
+    .BackbuttonoftheIntershippage {
+
+        height: 35px;
+        width: 100px;
+
+    }
+
+    .ImageoftheIntershippage {
+
+        margin-top: 18px;
+        height: 400px;
+    }
+
+    .paraoftheIntershippage {
+        line-height: 30px;
+        font-size: larger;
+
+    }
+
+    .containeroftheInternshippage {
+        margin-left: 100px;
+        margin-right: 100px
+    }
+
+    .buttonoftheIntershippage {
+
+        margin-left: 300px;
+        height: 35px;
+        width: fit-content;
+    }
+
+    /* .h1oftheInternshippage {
+        text-align: center;
+        padding-left: 510px;
+        padding-top: 50px;
+    } */
+
+}

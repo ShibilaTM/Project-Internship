@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    background-color: rgb(255, 255, 255);
+    color: white;
+
+ 
+}
+
+footer{
+    height: 300px;
+    width: 100%;
+    padding-top: 30px;
+    margin-bottom: 0;
+    color: rgb(255, 255, 255);
+    background-color:#045477;
+    /* #334390 */
+    
+}
+footer .footer-content{
+    color: white;
+
+    
+}
