@@ -3,7 +3,6 @@ import { Button, Grid, TextField} from '@mui/material';
 import { Paper } from '@mui/material';
 import { Avatar } from '@mui/material';
 import LockPersonIcon from '@mui/icons-material/LockPerson';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Signup = () => {
@@ -20,7 +19,7 @@ const Signup = () => {
     phonenumber: '',
     exitmark: '',
   });
-  const navigate = useNavigate();
+
 
   const inputHandler = (e) => {
     setUser({
@@ -77,12 +76,13 @@ const Signup = () => {
       .then((res) => {
         alert('successfully registered');
         // Redirect to login page after successful registration
-        navigate('/login');
+        // navigate('/login');
       })
       .catch((error) => {
         console.error('Error in Axios request:', error);
         if (error.response) {
           console.error('Server responded with status code:', error.response.status);
+          alert('Already registered')
           console.error('Response data:', error.response.data);
         }
       });
@@ -90,9 +90,9 @@ const Signup = () => {
     }
   };
 
-  const paperStyle = { padding: 20, height: '100vh', width: 300, margin: '20px auto' };
-  const avatarStyle = { backgroundColor: '#BF40BF' };
-  const buttonStyle = { margin: '15px 0' };
+  const paperStyle = { padding: 20, margin: '20px auto' };
+  const avatarStyle = { backgroundColor: '#005A92' };
+  const buttonStyle = { margin: '15px 0',backgroundColor:"#005A98" ,color:'white'};
 
   return (
     <Grid>
@@ -114,6 +114,8 @@ const Signup = () => {
         />
         <br />
         <br />
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 2, sm: 2, md: 3 }}>
+        <Grid item xs={6} sm={6} md={6}>
         <TextField
           variant="outlined"
           label="Email"
@@ -123,8 +125,10 @@ const Signup = () => {
           error={!!errors.email}
           helperText={errors.email}
         />
+        </Grid>
         <br />
         <br />
+        <Grid item xs={6} sm={6} md={6}>
         <TextField
           variant="outlined"
           label="Exit Mark"
@@ -134,8 +138,10 @@ const Signup = () => {
           error={!!errors.exitmark}
           helperText={errors.exitmark}
         />
+         </Grid>
         <br />
         <br />
+        <Grid item xs={6} sm={6} md={6}>
         <TextField
           variant="outlined"
           label="Password"
@@ -146,8 +152,10 @@ const Signup = () => {
           error={!!errors.password}
           helperText={errors.password}
         />
+         </Grid>
         <br />
         <br />
+        <Grid item xs={6} sm={6} md={6}>
         <TextField
           variant="outlined"
           label="Phone Number"
@@ -157,11 +165,13 @@ const Signup = () => {
           error={!!errors.phonenumber}
           helperText={errors.phonenumber}
         />
+        </Grid>
+        </Grid>
         <br />
-        <br />
+     
         <Button
           variant="contained"
-          color="secondary"
+          
           style={buttonStyle}
           onClick={addHandler}
           fullWidth
