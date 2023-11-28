@@ -1,69 +1,101 @@
-
-import { Button, Grid, TextField } from '@mui/material'
-import { Paper } from '@mui/material'
-import { Avatar } from '@mui/material'
+import { Button, Grid, TextField, Paper, Avatar } from '@mui/material';
 import LockPersonIcon from '@mui/icons-material/LockPerson';
-import axios from 'axios'
-import React, { useState } from 'react'
+import axios from 'axios';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-
 
 const Login = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({
     email: '',
-    password: ''
-  })
+    password: '',
+  });
+  const [error, setError] = useState('');
+
   const inputHandler = (e) => {
     setUser({
       ...user,
-      [e.target.name]: e.target.value
-    })
-  }
-
-
+      [e.target.name]: e.target.value,
+    });
+    setError(''); // Clear any previous error message
+  };
 
   const addHandler = async (e) => {
-
     try {
-      axios.post('http://127.0.0.1:4000/user/login', user)
-        .then((res) => {
-          alert(res.data.message)
-          if (res.data.message === 'success') {
-            sessionStorage.setItem('userToken', res.data.token)
-            console.log('successfully logged in')
-            navigate("/studentdashboard")
-
-          }
-        })
-
-
-    } catch (err) {
-      console.log(err);
+      // Check for empty fields
+      if (!user.email || !user.password) {
+        setError('Email and password are required');
+        return;
+      }
+  
+      const response = await axios.post('http://127.0.0.1:4000/user/login', user);
+  
+      if (response.data.message === 'success') {
+        sessionStorage.setItem('userToken', response.data.token);
+        console.log('Successfully logged in');
+        alert('success')
+        navigate('/studentdashboard');
+      } else {
+        alert('Email or password is incorrect');
+        setError(''); // Clear any previous error message
+      }
+    } catch (error) {
+      console.log(error);
+      setError('Email or password is incorrect');
     }
   };
-  const paperStyle = { padding: 20, height: '70vh', width: 300, margin: '20px auto' }
-  const avatarStyle = { backgroundColor: '#BF40BF' }
-  const buttonStyle = { margin: '15px 0' }
-  return (
-    <Grid>
-      <Paper style={paperStyle}>
-        <Grid align="center">
-          <Avatar style={avatarStyle}><LockPersonIcon /></Avatar>
-          <h1 sx={{ color: 'purple' }}>Login</h1>
-        </Grid>
+  
 
-        <br />
-        <TextField variant='outlined' label='email' name='email' onChange={inputHandler} fullWidth />
-        <br /><br />
-        <TextField variant='outlined' label='Password' name='password' type='password' onChange={inputHandler} fullWidth />
-        <br /><br />
-        <Button variant='contained' color='secondary' style={buttonStyle} onClick={addHandler} fullWidth>Login</Button>
-        {/* <span>Email or password is incorrect</span> */}
+  const paperStyle = { padding: 20, width: '100%', maxWidth: 400, margin: '20px auto' };
+  const avatarStyle = { backgroundColor: '#005A92' };
+  const buttonStyle = { margin: '15px 0',backgroundColor:"#005A98" ,color:'white'};
+
+  return (
+    <Grid container justifyContent="center">
+      <Paper style={paperStyle}>
+        <Grid container direction="column" alignItems="center" spacing={2}>
+          <Grid item>
+            <Avatar style={avatarStyle}>
+              <LockPersonIcon />
+            </Avatar>
+          </Grid>
+          <Grid item>
+            <h1 sx={{ color: 'purple' }}>Login</h1>
+          </Grid>
+          <Grid item xs={12} sm={12} md={12}>
+            <TextField variant="outlined" label="email" name="email" onChange={inputHandler} fullWidth />
+          </Grid>
+          <Grid item xs={12} sm={12} md={12}>
+            <TextField
+              variant="outlined"
+              label="Password"
+              name="password"
+              type="password"
+              onChange={inputHandler}
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={12} md={12}>
+            <Button
+              variant="contained"
+              color="secondary"
+              style={buttonStyle}
+              sx={{ width: '100%' }}
+              onClick={addHandler}
+              fullWidth
+            >
+              Login
+            </Button>
+          </Grid>
+          {error && (
+            <Grid item xs={12} sm={12} md={12}>
+              <p style={{ color: 'red', margin: 0 }}>{error}</p>
+            </Grid>
+          )}
+        </Grid>
       </Paper>
     </Grid>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
