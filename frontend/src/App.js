@@ -10,6 +10,13 @@ import Studentdashboard from './studentdashboard/studentdashboard/Studentdashboa
 import Internshipdynamicpage from './studentdashboard/studentdashboard/Internshippages/Internshipdynamicpage';
 import Theinternshipdetails from './studentdashboard/Resource/Theinternshipdetails';
 
+import ProMain from './project-dashboard/ProMain';
+import Dashboard from './project-pages/Dashboard';
+import Submissions from './project-pages/Submissions';
+import ProjectReport from './project-pages/ProjectReport';
+import Vivavoce from './project-pages/Vivavoce';
+import DiscussionForum from './project-pages/DiscussionForum';
+import Grades from './project-pages/Grades';
 
 function App() {
     return (
@@ -27,6 +34,13 @@ function App() {
                     <Route path="/alltheroutes" element={<Main child={<Alltheroutes />} />} />
                     <Route path='/login' element={<Login />}></Route>
                     <Route path='/signup' element={<Signup />}></Route>
+
+                    <Route path='/dash' element={<ProMain><Dashboard /></ProMain>} />
+                    <Route path='/submissions' element={<ProMain><Submissions/></ProMain>} />
+                    <Route path='/projectreport' element={<ProMain><ProjectReport /></ProMain>} />
+                    <Route path='/viva' element={<ProMain><Vivavoce /></ProMain>} />
+                    <Route path='/discussion' element={<ProMain><DiscussionForum/></ProMain>} />
+                    <Route path='/grades' element={<ProMain><Grades/></ProMain>} />
                 </Routes>
             </Router>
         </div>
