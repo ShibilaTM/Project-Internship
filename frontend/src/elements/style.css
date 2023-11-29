@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&family=Raleway:wght@100;200&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -8,7 +10,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: rgb(10, 10, 1);
 }
-
+p{
+text-align: justify;
+margin: 2em 10em;
+color: #002734;
+line-height: 35px;
+}
 /* Header Section */
 header {
   width: 100%;
@@ -74,10 +81,11 @@ header .container {
 .left-section button {
   color: #008b9b;
   border: none;
-  padding: 12px 50px;
+  padding: 15px 55px;
   margin-top: 15px;
   border-radius: 3px;
   cursor: pointer;
+ transition: .5s;
 }
 
 footer {
@@ -93,7 +101,7 @@ footer span {
 .card {
   display: flex;
   justify-content: space-evenly;
-
+  font-family: "Raleway", sans-serif;
   text-align: center;
   margin-bottom: 2em;
   align-items: center;
@@ -101,30 +109,26 @@ footer span {
 
 .card-item {
   background-color: rgb(255, 255, 255);
+
   height: 15em;
   margin: 2px 5px;
   width: 300px;
-  text-align: center;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
   padding: 2px;
+  transition: .3s;
 }
 
-.card-item:hover{
-
+.card-item:hover {
   padding: 5px;
 }
-
-
-
 
 h4,
 h2 {
   text-align: center;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  color: #055c76;
+  font-family: "Poppins", sans-serif;
+  color: #003c4e;
+
 }
 
 .card img {
@@ -142,5 +146,12 @@ h2 {
   width: 100%;
 
   color: rgb(0, 0, 0);
-  text-align:center;
+  text-align: center;
+}
+.btn:hover{
+  background-color: transparent;
+  border:1px solid rgb(255, 255, 255);
+  color: white;
+  
+
 }
