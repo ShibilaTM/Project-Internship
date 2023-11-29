@@ -93,7 +93,7 @@ footer span {
 .card {
   display: flex;
   justify-content: space-evenly;
-  background-color: #ffffff;
+
   text-align: center;
   margin-bottom: 2em;
   align-items: center;

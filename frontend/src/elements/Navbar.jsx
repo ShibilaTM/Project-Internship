@@ -107,19 +107,19 @@ const Navbar = () => {
             >
               Home
             </Button>
-            <Button
-              onClick={handleOpenLogin}
-              sx={{ my: 2, color: 'black', display: 'block' }}
-            >
-              Login
-            </Button>
+         
             <Button
               onClick={handleOpenSignup}
               sx={{ my: 2, color: 'black', display: 'block' }}
             >
               Signup
             </Button>
-            <Button color="inherit"><Link style={{ textDecoration: 'none', color: 'black' }} to={'/internship'}>Internship</Link></Button>
+            <Button
+              onClick={handleOpenLogin}
+              sx={{ my: 2, color: 'black', display: 'block' }}
+            >
+              Login
+            </Button>
           </Box>
         </Toolbar>
       </Container>
