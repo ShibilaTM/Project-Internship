@@ -10,7 +10,7 @@ import { BiSolidReport } from "react-icons/bi";
 import { FaPersonCircleQuestion } from "react-icons/fa6"
 import { NavLink } from 'react-router-dom';
 import { MdGrade } from "react-icons/md"
-
+import { IoLogOut } from "react-icons/io5"
 
 const Sidebar = ({Children}) => {
   const [isOpen,setIsOpen] = useState(false)
@@ -45,6 +45,11 @@ const Sidebar = ({Children}) => {
       path:'/grades',
       name:'Grades',
       icon:< MdGrade/>
+    },
+    {
+      path:'/',
+      name:'Logout',
+      icon:<IoLogOut />
     }
   ]
   return (
