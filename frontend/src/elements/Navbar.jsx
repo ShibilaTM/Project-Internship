@@ -13,7 +13,7 @@ const Navbar = () => {
               Intenship Portal
             </Typography>
             <Button color="inherit"><Link style={{ textDecoration: 'none', color: 'black' }} to={'/'}>Home</Link></Button>
-            <Button color="inherit"><Link style={{ textDecoration: 'none', color: 'black' }} to={'/internship'}>Internship</Link></Button>
+            {/* <Button color="inherit"><Link style={{ textDecoration: 'none', color: 'black' }} to={'/internship'}>Internship</Link></Button> */}
             <Button color="inherit"><Link style={{ textDecoration: 'none', color: 'black' }} to={'/signup'}>Signup</Link></Button>
             <Button color="inherit"><Link style={{ textDecoration: 'none', color: 'black' }} to={'/Login'}>Login</Link></Button>
           </Toolbar>
