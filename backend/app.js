@@ -15,6 +15,8 @@ app.use(express.urlencoded({ extended: true }))
 const userRoute = require('./routes/userRoute')
 app.use('/user', userRoute)
 
+const subRoute = require('./routes/projectRoutes')
+app.use('/form',subRoute)
 
 app.listen(PORT, () => {
     console.log(`server is running on ${PORT}`)
