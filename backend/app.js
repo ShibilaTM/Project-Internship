@@ -13,7 +13,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 const userRoute = require('./routes/userRoute')
-app.use('/user', userRoute)
+const dashRoute = require('./routes/projectdashRoute')
+app.use('/user', userRoute )
+app.use('/dash', dashRoute )
+
 
 const subRoute = require('./routes/projectRoutes')
 app.use('/form',subRoute)
