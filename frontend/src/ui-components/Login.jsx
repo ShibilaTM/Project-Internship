@@ -32,6 +32,9 @@ const Login = () => {
       if (response.data.message === 'success') {
         const userEmail = user.email; // Accessing the user's email from the state
         sessionStorage.setItem('userToken', response.data.token);
+        // During the login process
+          sessionStorage.setItem('userEmail', userEmail);
+
         localStorage.setItem('userEmail', userEmail); // Store the user's email in local storage
         console.log('Successfully logged in as:', userEmail);
         alert('success');

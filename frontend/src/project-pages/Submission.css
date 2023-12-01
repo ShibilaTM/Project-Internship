@@ -18,7 +18,9 @@
 .input h2 {
     color: #020253;
 }
-
+.input p {
+    color: #0b0b0c;
+}
 .input TextField {
     width: 100%;
 }
@@ -43,3 +45,4 @@
         margin: 10px;
     }
 }
+
