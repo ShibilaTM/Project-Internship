@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form {
+    background-color: rgb(250, 250, 216);
+    width: 40em;
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px; /* Add some padding for better spacing */
+}
+
+.input {
+    margin: 20px;
+}
+
+.input h2 {
+    color: #020253;
+}
+.input p {
+    color: #0b0b0c;
+}
+.input TextField {
+    width: 100%;
+}
+
+.input Button {
+    background-color: #020253;
+    color: white;
+}
+
+.input Button:hover {
+    background-color: rgb(164, 210, 238);
+    color: #000;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .form {
+        width: 100%;
+    }
+
+    .input {
+        margin: 10px;
+    }
+}
+

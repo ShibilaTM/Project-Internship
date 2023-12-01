@@ -18,6 +18,8 @@ app.use('/user', userRoute )
 app.use('/dash', dashRoute )
 
 
+const subRoute = require('./routes/projectRoutes')
+app.use('/form',subRoute)
 
 app.listen(PORT, () => {
     console.log(`server is running on ${PORT}`)
