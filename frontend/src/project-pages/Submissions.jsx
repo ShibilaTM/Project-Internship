@@ -88,6 +88,8 @@ const Submissions = () => {
     return `${days} days, ${hours} hours, ${minutes} minutes`;
   };
 
+  
+
   return (
     <div className='form'>
       <div className='input'>
