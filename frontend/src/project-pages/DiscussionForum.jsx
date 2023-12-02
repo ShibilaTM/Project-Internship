@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 import QuestionAnswerRoundedIcon from "@mui/icons-material/QuestionAnswerRounded";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
@@ -8,10 +8,10 @@ import EditRoundedIcon from "@mui/icons-material/EditRounded";
 import "./css/dicussform.css";
 import {
   Avatar,
-  Box,
+
   Button,
   Card,
-  CardActions,
+  
   CardContent,
   Dialog,
   DialogActions,
@@ -25,15 +25,8 @@ import {
 } from "@mui/material";
 import { yellow } from "@mui/material/colors";
 
-
-
-
 const DiscussionForum = (props) => {
-
-
-
-
-  //GET Operation----------------------------------
+  // GET Operation----------------------------------
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
@@ -42,22 +35,35 @@ const DiscussionForum = (props) => {
       .catch((err) => console.log(err));
   }, []);
 
-
-
-
-
-  //POST ---------------------------------------
-
+  // POST ---------------------------------------
   const [form, setForm] = useState({
-    title:"",
-    query:"",
-    date:Date.now()
+    title: "",
+    query: "",
+    date: Date.now(),
   });
 
-  const sumbmitform = (props) => {
-    if (props.method === "put") {
+  const [open, setOpen] = React.useState(false);
+  const [selectedValue, setSelectedValue] = useState({ title: "", query: "" });
+
+  const handleClickOpen = (val) => {
+    setSelectedValue(val);
+    setForm({
+      title: val.title || "",
+      query: val.query || "",
+      date: val.date || Date.now(),
+    });
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const sumbmitform = () => {
+    if (selectedValue._id) {
+      // If _id exists, it's an update
       axios
-        .put("http://localhost:4000/dash/edit/" + props.data._id, form)
+        .put("http://localhost:4000/dash/edit/" + selectedValue._id, form)
         .then((response) => {
           if (response.data === "Updated successfully") {
             alert(response.data);
@@ -67,6 +73,7 @@ const DiscussionForum = (props) => {
           }
         });
     } else {
+      // Otherwise, it's a new post
       axios.post("http://localhost:4000/dash/add", form).then((res) => {
         alert(res.data);
       });
@@ -74,59 +81,13 @@ const DiscussionForum = (props) => {
     setOpen(false);
   };
 
-
-
-
-
-  //DELETE-------------------------
+  // DELETE-------------------------
   function removeBlog(id) {
     axios.delete("http://localhost:4000/dash/remove/" + id).then((res) => {
       alert(res.data);
       window.location.reload(false);
     });
   }
-
-
-
-  //Update------------------
-
-
-
-
-  var [update, setUpdate] = useState(false);
-  var [singleValue, setSingleValue] = useState([]);
-
-
-
-  const updateBlog = (val) => {
-    console.log("update clicked", val);
-    setUpdate(true);
-    setSingleValue(val);
-  };
-
-
-
-
-
-
-  //-------------------
-
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>;
-
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   return (
     <div>
@@ -146,16 +107,10 @@ const DiscussionForum = (props) => {
               </Grid>
               <Grid item xs={2}>
                 <React.Fragment>
-                  <Button
-                    variant="contained"
-                  
-                    onClick={handleClickOpen}
-                  >
+                  <Button variant="contained" onClick={handleClickOpen}>
                     Add Queries
                   </Button>
 
-
-                 
                   <Dialog open={open} onClose={handleClose}>
                     <DialogTitle>Add Queries</DialogTitle>
                     <DialogContent>
@@ -167,9 +122,10 @@ const DiscussionForum = (props) => {
                         margin="dense"
                         id="name"
                         label="Title"
-                        type="email"
+                        type="text"
                         fullWidth
                         variant="standard"
+                        value={form.title}
                         onChange={(e) => {
                           setForm({ ...form, title: e.target.value });
                         }}
@@ -178,12 +134,13 @@ const DiscussionForum = (props) => {
                         autoFocus
                         margin="dense"
                         id="name"
-                        label="Write your quries..."
-                        type="email"
+                        label="Write your queries..."
+                        type="text"
                         fullWidth
                         variant="standard"
                         multiline
                         rows={4}
+                        value={form.query}
                         onChange={(e) => {
                           setForm({ ...form, query: e.target.value });
                         }}
@@ -194,9 +151,6 @@ const DiscussionForum = (props) => {
                       <Button onClick={sumbmitform}>Add</Button>
                     </DialogActions>
                   </Dialog>
-
-
-                 
                 </React.Fragment>
               </Grid>
             </Grid>
@@ -256,36 +210,20 @@ const DiscussionForum = (props) => {
           </Grid>
           <Grid item xs={1}>
             <Grid style={{ margin: "20px" }}>
-
-
-            <Button
-                    variant="outlined"
-                  
-                    onClick={handleClickOpen}
-                  > 
-                <EditRoundedIcon style={{ fill: "#192A56" }}     onClick={() => updateBlog(val)}  />
-                  </Button>
-
-
-
-                  
-
-
-             
+              <Button variant="outlined" onClick={() => handleClickOpen(val)}>
+                <EditRoundedIcon style={{ fill: "#192A56" }} />
+              </Button>
             </Grid>
 
             <Grid style={{ margin: "20px" }}>
-              
-            <Button
-                    variant="outlined">
-                          <DeleteRoundedIcon
-                style={{ fill: "#192A56", cursor: "pointer" }}
-                onClick={() => {
-                  removeBlog(val._id);
-                }}
-              />
-                    </Button>
-          
+              <Button variant="outlined">
+                <DeleteRoundedIcon
+                  style={{ fill: "#192A56", cursor: "pointer" }}
+                  onClick={() => {
+                    removeBlog(val._id);
+                  }}
+                />
+              </Button>
             </Grid>
           </Grid>
         </Grid>
