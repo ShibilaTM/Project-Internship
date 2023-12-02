@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const discussSchema = mongoose.Schema({
   title:String,
   query:String,
+  date:Date
 
-  
 
 })
 
