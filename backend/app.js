@@ -14,8 +14,11 @@ app.use(express.urlencoded({ extended: true }))
 
 const userRoute = require('./routes/userRoute')
 const dashRoute = require('./routes/projectdashRoute')
+const gradeRoute = require('./routes/gradeRoute')
+
 app.use('/user', userRoute )
 app.use('/dash', dashRoute )
+app.use('/grade', gradeRoute )
 
 
 const subRoute = require('./routes/projectRoutes')
