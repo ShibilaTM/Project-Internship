@@ -36,10 +36,10 @@ const ProjectReport = () => {
 
     const userEmail = localStorage.getItem('userEmail');
      // Include the user's email in the payload
-     const projectData = {
-      ...project,
-      userEmail: userEmail
-    };
+    //  const projectData = {
+    //   ...project,
+    //   userEmail: userEmail
+    // };
 
     axiosInstance.post('http://127.0.0.1:4000/form/project', project).then((res) => {
       alert(res.data.message);
