@@ -115,7 +115,7 @@ const DiscussionForum = (props) => {
                     <DialogTitle>Add Queries</DialogTitle>
                     <DialogContent>
                       <DialogContentText>
-                        Hello Students, Here you can add your Queries..
+                        Hello Interns, Here you can add your Queries..
                       </DialogContentText>
                       <TextField
                         autoFocus
@@ -183,7 +183,7 @@ const DiscussionForum = (props) => {
               </CardContent>
               <Divider />
 
-              <div className="comment">Here comments will come</div>
+              <div className="comment"> Comments </div>
 
               <Divider />
 
