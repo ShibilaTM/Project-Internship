@@ -1,0 +1,23 @@
+.bodyofthereferencematerial {
+    text-align: center;
+    background-color: rgb(3, 96, 133);
+    color: white;
+    height: 2500px;
+}
+
+.p {
+    color: white;
+}
+
+.a {
+
+    height: 100px;
+    padding: 10px;
+    padding-left: 50px;
+    padding-Right: 50px;
+
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    color: rgb(3, 96, 133);
+}

@@ -29,16 +29,12 @@ const Login = () => {
       }
   
       const response = await axios.post('http://127.0.0.1:4000/user/login', user);
+  
       if (response.data.message === 'success') {
-        const userEmail = user.email; // Accessing the user's email from the state
         sessionStorage.setItem('userToken', response.data.token);
-        // During the login process
-          sessionStorage.setItem('userEmail', userEmail);
-
-        localStorage.setItem('userEmail', userEmail); // Store the user's email in local storage
-        console.log('Successfully logged in as:', userEmail);
-        alert('success');
-        navigate('/studentdashboard'); // Redirect to the student dashboard
+        console.log('Successfully logged in');
+        alert('success')
+        navigate('/studentdashboard');
       } else {
         alert('Email or password is incorrect');
         setError(''); // Clear any previous error message
@@ -48,7 +44,7 @@ const Login = () => {
       setError('Email or password is incorrect');
     }
   };
-
+  
 
   const paperStyle = { padding: 20, width: '100%', maxWidth: 400, margin: '20px auto' };
   const avatarStyle = { backgroundColor: '#005A92' };
