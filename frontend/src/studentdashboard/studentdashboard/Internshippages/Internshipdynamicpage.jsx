@@ -74,7 +74,7 @@ const Internshipdynamicpage = (props) => {
                         <img src={props.image} className='ImageoftheIntershippage' style={{ height: "300px", width: "450px" }} alt="" />
                     </Grid>
                     <Grid item lg={6} sm={12} xs={12}>
-                        <h1>     {props.heading}</h1>
+                        <h1 className='h1promax'>     {props.heading}</h1>
                         <p className='paraoftheIntershippage' >{props.content}</p>
                     </Grid>
                 </Grid>

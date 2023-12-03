@@ -1,13 +1,13 @@
 .h1oftheprojectreport {
     text-align: center;
     font-weight: 200;
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
 .h3oftheprojectreport {
     text-align: center;
     font-size: 40px;
-    margin-top: 150px;
+    /* margin-top: 150px; */
     margin-left: 500px;
     width: 400px;
     height: 150px;
@@ -29,7 +29,7 @@
 
 .smallcontaineroftheprojectreport {
     width: 750px;
-    height: 550px;
+    height: 650px;
     background: linear-gradient(rgba(3, 44, 64, 0.849), rgb(5, 83, 114));
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -46,7 +46,7 @@
     color: white;
 
     text-align: center;
-    margin-top: 250px;
+    margin-top: 100px;
     margin-left: 160px;
     width: 400px;
     height: 100px;
@@ -74,4 +74,19 @@
     background-color: white;
     color: rgb(3, 96, 133);
     text-align: center;
+    cursor: pointer;
+}
+
+.Dummyimageofthereferencehome {
+    height: 200px;
+    width: 200px;
+    margin-top: 70px;
+    margin-left: 250px;
+    /* padding-left: 200px; */
+    /* Add a border with a solid color and a width of 2 pixels */
+    border: 2px solid #333;
+    /* Add a subtle box shadow for a raised effect */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    /* Apply a transition for a smooth hover effect */
+    transition: transform 0.3s ease-in-out;
 }

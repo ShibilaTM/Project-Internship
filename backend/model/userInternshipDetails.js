@@ -7,6 +7,7 @@ const InternshipSchema = new Schema({
 
 
     }
+
 });
 
 const Internshipdetail = mongoose.model('detail', InternshipSchema);

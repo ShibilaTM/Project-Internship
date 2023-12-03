@@ -6,6 +6,8 @@ import { useEffect, useState } from "react"
 import { Grid } from "@mui/material"
 import { useNavigate } from "react-router-dom";
 
+import Dummyimageofthereferencehome from "../Images/GRA_Home-Header-Overlay.png"
+
 const ProjectReport = () => {
   const [selectedInternship, setSelectedInternship] = useState("")
   const Navigate = useNavigate();
@@ -47,14 +49,15 @@ const ProjectReport = () => {
   })
   return (
     <div className="containeroftheprojectreport">
-      <div style={{ height: "100px" }}></div>
+      <div style={{ height: "30px" }}></div>
+
       <div className="smallcontaineroftheprojectreport">
 
 
         <h1 className="h1oftheprojectreport">
           {selectedInternship}
         </h1>
-
+        <img className="Dummyimageofthereferencehome" src={Dummyimageofthereferencehome} alt="" />
         {/* <h3 className="h3oftheprojectreport">Programming isn't about what you know; it's about what you can figure out</h3> */}
         <p className="paragraphoftheprojectreport">You can download the detailed documentation of the Project or You can start learning through the reference materials
 
@@ -70,6 +73,7 @@ const ProjectReport = () => {
           </Grid>
         </Grid>
       </div >
+      <div style={{ height: "100px" }}></div>
 
     </div>
   )
