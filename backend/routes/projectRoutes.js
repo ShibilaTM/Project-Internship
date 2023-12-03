@@ -67,5 +67,24 @@ router.post('/subm',verifytoken, async (req, res) => {
     }
   });
 
+//submission status
+  router.get('/submission-status', verifytoken, async (req, res) => {
+    try {
+        const userEmail = req.query.userEmail;
+
+        // Check if the user has submitted a project
+        const projectSubmission = await Project.findOne({ userEmail });
+
+        // Check if the user has submitted a submission
+        const submissionStatus = await submission.findOne({ userEmail });
+
+        res.status(200).json({ hasSubmittedProject: !!projectSubmission, hasSubmittedSubmission: !!submissionStatus });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: 'Error checking submission status', error: error.message });
+    }
+});
+
+
 
 module.exports = router

@@ -87,6 +87,7 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import './Submission.css';
+
 import axiosInstance from '../axiosinterceptor';
 
 const ProjectReport = () => {
@@ -100,10 +101,6 @@ const ProjectReport = () => {
   const [alreadySubmitted, setAlreadySubmitted] = useState(false);
 
   useEffect(() => {
-
-    const fetchdata = async () => {
-
-    }
     // Check if the user has already submitted the form
     const userEmail = localStorage.getItem('userEmail');
     const hasSubmitted = localStorage.getItem(`submitted_${userEmail}`);
