@@ -9,25 +9,6 @@ import Alltheroutes from "./studentdashboard/studentdashboard/Alltheroutes"
 import Studentdashboard from './studentdashboard/studentdashboard/Studentdashboard';
 import Internshipdynamicpage from './studentdashboard/studentdashboard/Internshippages/Internshipdynamicpage';
 import Theinternshipdetails from './studentdashboard/Resource/Theinternshipdetails';
-<<<<<<< HEAD
-import ProMain from './project-dashboard/ProMain';
-import Dashboard from './project-pages/Dashboard';
-import Submissions from './project-pages/Submissions';
-// import ProjectReport from './project-pages/projectreport/ProjectReport';
-import Vivavoce from './project-pages/Vivavoce';
-import DiscussionForum from './project-pages/DiscussionForum';
-import Grades from './project-pages/Grades';
-import Referencematerial from "./project-pages/referencehome/Referencematerial"
-
-import Uiuix from './project-pages/Referencepages/Uiuix'
-import Cyber from './project-pages/Referencepages/Cyber';
-import Datasci from './project-pages/Referencepages/Datasci';
-import Mobile from './project-pages/Referencepages/Mobile';
-import Software from './project-pages/Referencepages/Software';
-import Web from './project-pages/Referencepages/Web';
-
-import ReferenceHome from './project-pages/referencehome/ReferenceHome';
-=======
 import ProMain from "./project-dashboard/ProMain"
 import Vivavoce from "./project-pages/Vivavoce"
 import Dashboard from "./project-pages/Dashboard"
@@ -49,7 +30,6 @@ import Uiuix from "./Referencepages/Uiuix"
 
 
 
->>>>>>> rolesonpro
 
 
 function App() {
@@ -78,15 +58,7 @@ function App() {
                     <Route path='/submissions' element={<ProMain><Submissions /></ProMain>} />
                     <Route path='/referencehome' element={<ProMain><ReferenceHome /></ProMain>} />
 
-<<<<<<< HEAD
-                    <Route path='/dash' element={<ProMain><ReferenceHome /></ProMain>} />
-                    <Route path='/submissions' element={<ProMain><Submissions /></ProMain>} />
-
-
-                    {/* <Route path='/projectreport' element={<ProMain><ProjectReport /></ProMain>} /> */}
-=======
                     <Route path='/projectreport' element={<ProMain><ProjectReport /></ProMain>} />
->>>>>>> rolesonpro
                     <Route path='/referencematerials' element={<ProMain><Referencematerial /></ProMain>} />
                     <Route path='/viva' element={<ProMain><Vivavoce /></ProMain>} />
                     <Route path='/discussion' element={<ProMain><DiscussionForum /></ProMain>} />

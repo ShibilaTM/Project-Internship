@@ -20,10 +20,7 @@ const referenceRoute = require('./routes/referenceroute')
 app.use('/user', userRoute)
 app.use('/dash', dashRoute)
 app.use('/grade', gradeRoute)
-<<<<<<< HEAD
-=======
 app.use('/referenceroute', referenceRoute)
->>>>>>> rolesonpro
 
 
 const subRoute = require('./routes/projectRoutes')

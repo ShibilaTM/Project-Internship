@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-const Submissions = () => {
-  return (
-    <div>
-      Submissions
-    </div>
-  )
-}
-
-export default Submissions
-=======
 
 import { useState, useEffect } from 'react';
 import axiosInstance from '../axiosinterceptor';
@@ -170,4 +157,3 @@ const Submissions = () => {
 };
 
 export default Submissions;
->>>>>>> rolesonpro

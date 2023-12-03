@@ -1,11 +1,96 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 
-const DiscussionForum = () => {
+import axios from "axios";
+import QuestionAnswerRoundedIcon from "@mui/icons-material/QuestionAnswerRounded";
+import SendRoundedIcon from "@mui/icons-material/SendRounded";
+import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
+import EditRoundedIcon from "@mui/icons-material/EditRounded";
+import "./css/dicussform.css";
+import {
+  Avatar,
+
+  Button,
+  Card,
+
+  CardContent,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Divider,
+  Grid,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { yellow } from "@mui/material/colors";
+
+const DiscussionForum = (props) => {
+  // GET Operation----------------------------------
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/dash/")
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  // POST ---------------------------------------
+  const [form, setForm] = useState({
+    title: "",
+    query: "",
+    date: Date.now(),
+  });
+
+  const [open, setOpen] = React.useState(false);
+  const [selectedValue, setSelectedValue] = useState({ title: "", query: "" });
+
+  const handleClickOpen = (val) => {
+    setSelectedValue(val);
+    setForm({
+      title: val.title || "",
+      query: val.query || "",
+      date: val.date || Date.now(),
+    });
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const sumbmitform = () => {
+    if (selectedValue._id) {
+      // If _id exists, it's an update
+      axios
+        .put("http://localhost:4000/dash/edit/" + selectedValue._id, form)
+        .then((response) => {
+          if (response.data === "Updated successfully") {
+            alert(response.data);
+            window.location.reload(false);
+          } else {
+            alert("not updated");
+          }
+        });
+    } else {
+      // Otherwise, it's a new post
+      axios.post("http://localhost:4000/dash/add", form).then((res) => {
+        alert(res.data);
+      });
+    }
+    setOpen(false);
+  };
+
+  // DELETE-------------------------
+  function removeBlog(id) {
+    axios.delete("http://localhost:4000/dash/remove/" + id).then((res) => {
+      alert(res.data);
+      window.location.reload(false);
+    });
+  }
+
   return (
     <div>
-<<<<<<< HEAD
-      DiscussionForum
-=======
       <h2>
         <QuestionAnswerRoundedIcon /> &nbsp; Discussion Form
       </h2>
@@ -143,9 +228,8 @@ const DiscussionForum = () => {
           </Grid>
         </Grid>
       ))}
->>>>>>> rolesonpro
     </div>
-  )
-}
+  );
+};
 
-export default DiscussionForum
+export default DiscussionForum;

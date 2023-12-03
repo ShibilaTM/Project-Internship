@@ -2,14 +2,10 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
-      
+
 }
 
-<<<<<<< HEAD
 .container {
-=======
-.container{
->>>>>>> rolesonpro
     display: flex;
 }
 
@@ -20,15 +16,10 @@ main {
 
 .pro-main {
     display: flex;
-<<<<<<< HEAD
 }
 
 .sidebar {
-=======
-  }
-.sidebar{
     margin-left: 0px;
->>>>>>> rolesonpro
     background: #020253;
     justify-content: left;
     color: #fff;

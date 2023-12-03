@@ -12,7 +12,6 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Selectednavbar from '../../utilities/Selectednavbar';
-import axios from 'axios';
 
 
 
@@ -21,11 +20,7 @@ const Internshipdynamicpage = (props) => {
 
     async function sendselectedinternship() {
         try {
-<<<<<<< HEAD
-            const url = 'http://127.0.0.1:4000/user/selectedinternship';
-=======
             const url = 'http://127.0.0.1:4000/referenceroute/selectedinternship';
->>>>>>> rolesonpro
             const dataToSend = { internshipname: props.heading }
             // Making a POST request using async/await
             const response = await axios.post(url, dataToSend);
@@ -36,21 +31,13 @@ const Internshipdynamicpage = (props) => {
         }
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> rolesonpro
     const HandleBackButtonclick = () => {
         navigate("/studentdashboard");
 
         console.log("button clicked navigate")
     }
     const Handleconfirmbuttonclick = async () => {
-<<<<<<< HEAD
-        alert(`you Have selected the ${props.heading}`)
-=======
         alert(`you Have selected the ${props.heading}`);
->>>>>>> rolesonpro
         await sendselectedinternship()
         navigate("/dash")
     }
