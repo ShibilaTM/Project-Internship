@@ -2,7 +2,9 @@
     margin:0;
     padding:0;
     text-decoration: none;
+      
 }
+
 .container{
     display: flex;
 }
@@ -15,7 +17,9 @@ main{
     display: flex;
   }
 .sidebar{
+    margin-left: 0px;
     background: #020253;
+    justify-content: left;
     color: #fff;
     height: 100vh;
     width: 350px;
