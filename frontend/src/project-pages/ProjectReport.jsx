@@ -33,6 +33,11 @@ const ProjectReport = () => {
       alert('You have already submitted the form');
       return;
     }
+      // Submit only if the user has not submitted before
+      if (project.title.trim() === '' || project.url.trim() === '' || project.comments.trim() === ''||project.comments.trim() === '') {
+        alert('Please fill in all fields.');
+        return;
+      }
 
     const userEmail = localStorage.getItem('userEmail');
      // Include the user's email in the payload
