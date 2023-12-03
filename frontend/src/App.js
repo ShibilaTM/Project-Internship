@@ -17,6 +17,10 @@ import ProjectReport from './project-pages/ProjectReport';
 import Vivavoce from './project-pages/Vivavoce';
 import DiscussionForum from './project-pages/DiscussionForum';
 import Grades from './project-pages/Grades';
+import Quiz from './Quiz/Quiz'
+import QuizResult from './Quiz/QuizResult';
+
+
 
 function App() {
     return (
@@ -41,6 +45,8 @@ function App() {
                     <Route path='/viva' element={<ProMain><Vivavoce /></ProMain>} />
                     <Route path='/discussion' element={<ProMain><DiscussionForum/></ProMain>} />
                     <Route path='/grades' element={<ProMain><Grades/></ProMain>} />
+                    <Route path='/Quiz' element={<Quiz />}></Route>
+                    <Route path='/QuizResult' element={<QuizResult />}></Route>
                 </Routes>
             </Router>
         </div>
