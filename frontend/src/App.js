@@ -9,7 +9,7 @@ import Alltheroutes from "./studentdashboard/studentdashboard/Alltheroutes"
 import Studentdashboard from './studentdashboard/studentdashboard/Studentdashboard';
 import Internshipdynamicpage from './studentdashboard/studentdashboard/Internshippages/Internshipdynamicpage';
 import Theinternshipdetails from './studentdashboard/Resource/Theinternshipdetails';
-import Projectdashhome from './projectdashboard/projectdashhome/Projectdashhome';
+
 
 function App() {
     return (
@@ -26,8 +26,6 @@ function App() {
                     <Route path="/alltheroutes" element={<Main child={<Alltheroutes />} />} />
                     <Route path='/login' element={<Login />}></Route>
                     <Route path='/signup' element={<Signup />}></Route>
-                    <Route path="/studentdashboard" element={< Studentdashboard />} />
-                    <Route path='/projectdashhome' element={<Projectdashhome />}></Route>
                 </Routes>
             </Router>
         </div>

@@ -24,7 +24,7 @@ const Internshipdynamicpage = (props) => {
     }
     const Handleconfirmbuttonclick = () => {
         alert(`you Have selected the ${props.heading}`);
-        navigate("/")
+        navigate("/dash")
     }
     const steps = [
         'Signup',

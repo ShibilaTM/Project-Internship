@@ -1,0 +1,12 @@
+.viva{
+    text-align: center;
+    font-style: italic;
+    color: darkblue;
+}
+
+button.one {
+    margin-left: 650px;
+    padding: 8px 22px;
+    border-radius: 6px;
+    max-width:1000px;
+}
