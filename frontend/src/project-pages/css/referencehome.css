@@ -1,0 +1,77 @@
+.h1oftheprojectreport {
+    text-align: center;
+    font-weight: 200;
+    padding-top: 40px;
+}
+
+.h3oftheprojectreport {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 150px;
+    margin-left: 500px;
+    width: 400px;
+    height: 150px;
+    font-weight: 200;
+    line-height: 50px;
+    margin-bottom: 150px;
+}
+
+.containeroftheprojectreport {
+    height: 100vh;
+    background: linear-gradient(rgba(5, 60, 87, 0.849), rgb(3, 96, 133)),
+        url(../../Images/webdeveopment.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+
+    align-items: center;
+}
+
+.smallcontaineroftheprojectreport {
+    width: 750px;
+    height: 550px;
+    background: linear-gradient(rgba(3, 44, 64, 0.849), rgb(5, 83, 114));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+
+    align-items: center;
+    margin-bottom: 30px;
+    margin-left: 320px;
+
+
+}
+
+.paragraphoftheprojectreport {
+    color: white;
+
+    text-align: center;
+    margin-top: 250px;
+    margin-left: 160px;
+    width: 400px;
+    height: 100px;
+    font-weight: 200;
+    line-height: 30px;
+}
+
+.downloadbuttonoftheprojectreport {
+    width: 150px;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    color: rgb(3, 96, 133);
+    margin-left: 170px;
+}
+
+.refmaterialsbuttonoftheprojectreport {
+    width: 150px;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    color: rgb(3, 96, 133);
+    text-align: center;
+}

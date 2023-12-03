@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import {AppBar,Box,Button,Container,Dialog,DialogContent,IconButton,Menu,MenuItem,Toolbar,Typography,} from '@mui/material';
+import { AppBar, Box, Button, Container, Dialog, DialogContent, IconButton, Menu, MenuItem, Toolbar, Typography, } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import LogoImage from './Logo_ict.png';
 import Login from '../ui-components/Login';
@@ -52,26 +52,13 @@ const Navbar = () => {
             }}
           />
 
-<<<<<<< HEAD
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Intenship Portal
-            </Typography>
-            <Button color="inherit"><Link style={{ textDecoration: 'none', color: 'black' }} to={'/'}>Home</Link></Button>
-            {/* <Button color="inherit"><Link style={{ textDecoration: 'none', color: 'black' }} to={'/internship'}>Internship</Link></Button> */}
-            <Button color="inherit"><Link style={{ textDecoration: 'none', color: 'black' }} to={'/signup'}>Signup</Link></Button>
-            <Button color="inherit"><Link style={{ textDecoration: 'none', color: 'black' }} to={'/Login'}>Login</Link></Button>
-          </Toolbar>
-        </AppBar>
-      </Box>
-=======
           {/* Title */}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Internship Portal
           </Typography>
->>>>>>> 586230840e418a91cfe398963edc81f8a54bc880
 
           {/* Mobile Menu */}
-          <Box sx={{  display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="menu"
@@ -120,7 +107,7 @@ const Navbar = () => {
             >
               Home
             </Button>
-         
+
             <Button
               onClick={handleOpenSignup}
               sx={{ my: 2, color: 'black', display: 'block' }}
@@ -140,15 +127,15 @@ const Navbar = () => {
       {/* Login Dialog */}
       <Dialog open={openLogin} onClose={handleCloseLogin}>
         <DialogContent
-         sx={{
-          width: '100%',
-          maxHeight: '80vh', // Adjust the maxHeight value as needed
-          overflowY: 'auto',
-          '@media (min-width: 600px)': {
-            width: '600px',
-            maxHeight: '80vh', // Adjust the maxHeight value for larger screens
-          },
-        }}
+          sx={{
+            width: '100%',
+            maxHeight: '80vh', // Adjust the maxHeight value as needed
+            overflowY: 'auto',
+            '@media (min-width: 600px)': {
+              width: '600px',
+              maxHeight: '80vh', // Adjust the maxHeight value for larger screens
+            },
+          }}
         >
           <Login />
         </DialogContent>

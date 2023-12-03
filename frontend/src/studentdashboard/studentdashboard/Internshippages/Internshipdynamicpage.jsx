@@ -12,18 +12,35 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Selectednavbar from '../../utilities/Selectednavbar';
+import axios from 'axios';
 
 
 
 const Internshipdynamicpage = (props) => {
     const navigate = useNavigate();
 
+    async function sendselectedinternship() {
+        try {
+            const url = 'http://127.0.0.1:4000/referenceroute/selectedinternship';
+            const dataToSend = { internshipname: props.heading }
+            // Making a POST request using async/await
+            const response = await axios.post(url, dataToSend);
+            console.log('POST Request Successful');
+            console.log('Response Data:', response.data);
+        } catch (error) {
+            console.error('Error during POST request:', error.message);
+        }
+    }
+
+
     const HandleBackButtonclick = () => {
         navigate("/studentdashboard");
+
         console.log("button clicked navigate")
     }
-    const Handleconfirmbuttonclick = () => {
+    const Handleconfirmbuttonclick = async () => {
         alert(`you Have selected the ${props.heading}`);
+        await sendselectedinternship()
         navigate("/dash")
     }
     const steps = [
