@@ -11,9 +11,13 @@ body {
 }
 
 .paraoftheIntershippage {
+    width: 400px;
     line-height: 30px;
     font-size: larger;
-    ;
+    margin-right: 100px;
+    /* padding-left: 30px; */
+
+
 }
 
 .containeroftheInternshippage {
@@ -31,10 +35,16 @@ body {
 
 .h1oftheInternshippage {
     text-align: center;
+
 }
 
 .BackbuttonoftheIntershippage {
     font-size: medium;
+}
+
+.h1promax {
+    padding-left: 185px;
+    padding-top: 20px;
 }
 
 

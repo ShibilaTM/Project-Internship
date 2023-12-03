@@ -9,6 +9,7 @@ import Alltheroutes from "./studentdashboard/studentdashboard/Alltheroutes"
 import Studentdashboard from './studentdashboard/studentdashboard/Studentdashboard';
 import Internshipdynamicpage from './studentdashboard/studentdashboard/Internshippages/Internshipdynamicpage';
 import Theinternshipdetails from './studentdashboard/Resource/Theinternshipdetails';
+<<<<<<< HEAD
 import ProMain from './project-dashboard/ProMain';
 import Dashboard from './project-pages/Dashboard';
 import Submissions from './project-pages/Submissions';
@@ -26,6 +27,29 @@ import Software from './project-pages/Referencepages/Software';
 import Web from './project-pages/Referencepages/Web';
 
 import ReferenceHome from './project-pages/referencehome/ReferenceHome';
+=======
+import ProMain from "./project-dashboard/ProMain"
+import Vivavoce from "./project-pages/Vivavoce"
+import Dashboard from "./project-pages/Dashboard"
+import Grades from "./project-pages/Grades"
+
+import DiscussionForum from "./project-pages/DiscussionForum"
+import ReferenceHome from "./project-pages/ReferenceHome"
+import Referencematerial from "./project-pages/Referencematerial"
+import Submissions from "./project-pages/Submissions"
+import ProjectReport from "./project-pages/ProjectReport"
+import Quiz from "./Quiz/Quiz"
+
+import Cyber from "./Referencepages/Cyber"
+import Datasci from "./Referencepages/Datasci"
+import Mobile from "./Referencepages/Mobile"
+import Software from "./Referencepages/Software"
+import Web from "./Referencepages/Web"
+import Uiuix from "./Referencepages/Uiuix"
+
+
+
+>>>>>>> rolesonpro
 
 
 function App() {
@@ -34,7 +58,6 @@ function App() {
             <Router>
                 <Routes>
                     <Route path="/" element={<Main child={<Home />} />} />
-                    <Route path="/studentdashboard" element={< Studentdashboard />} />
                     <Route path="/internshippage1" element={< Internshipdynamicpage heading={Theinternshipdetails[0].heading} content={Theinternshipdetails[0].content} image={Theinternshipdetails[0].image} morecontent={Theinternshipdetails[0].morecontent} />} />
                     <Route path="/internshippage2" element={< Internshipdynamicpage heading={Theinternshipdetails[1].heading} content={Theinternshipdetails[1].content} image={Theinternshipdetails[1].image} morecontent={Theinternshipdetails[1].morecontent} />} />
                     <Route path="/internshippage3" element={< Internshipdynamicpage heading={Theinternshipdetails[2].heading} content={Theinternshipdetails[2].content} image={Theinternshipdetails[2].image} morecontent={Theinternshipdetails[2].morecontent} />} />
@@ -44,12 +67,26 @@ function App() {
                     <Route path="/alltheroutes" element={<Main child={<Alltheroutes />} />} />
                     <Route path='/login' element={<Login />}></Route>
                     <Route path='/signup' element={<Signup />}></Route>
+                    <Route path="/alltheroutes" element={<Main child={<Alltheroutes />} />} />
+                    <Route path='/login' element={<Login />}></Route>
+                    <Route path='/signup' element={<Signup />}></Route>
+                    <Route path='/studentdashboard' element={<Studentdashboard />}></Route>
+                    <Route path='/quiz' element={<ProMain><Quiz /></ProMain>} />
 
+                    <Route path='/dash' element={<ProMain><ReferenceHome /></ProMain>} />
+
+                    <Route path='/submissions' element={<ProMain><Submissions /></ProMain>} />
+                    <Route path='/referencehome' element={<ProMain><ReferenceHome /></ProMain>} />
+
+<<<<<<< HEAD
                     <Route path='/dash' element={<ProMain><ReferenceHome /></ProMain>} />
                     <Route path='/submissions' element={<ProMain><Submissions /></ProMain>} />
 
 
                     {/* <Route path='/projectreport' element={<ProMain><ProjectReport /></ProMain>} /> */}
+=======
+                    <Route path='/projectreport' element={<ProMain><ProjectReport /></ProMain>} />
+>>>>>>> rolesonpro
                     <Route path='/referencematerials' element={<ProMain><Referencematerial /></ProMain>} />
                     <Route path='/viva' element={<ProMain><Vivavoce /></ProMain>} />
                     <Route path='/discussion' element={<ProMain><DiscussionForum /></ProMain>} />
