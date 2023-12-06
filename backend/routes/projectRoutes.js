@@ -6,6 +6,7 @@ const cors = require('cors')
 router.use(cors());
 const jwt = require('jsonwebtoken');
 const admin = require('../model/adminModel');
+const userData = require('../model/userData')
 
 function verifytoken(req, res, next) {
     try {
@@ -14,7 +15,7 @@ function verifytoken(req, res, next) {
 
         const payload = jwt.verify(token, 'reactInternshipApp');
         if (!payload) throw 'Invalid token';
-
+        req.authUser = payload; // Set authUser property
         next();
     } catch (error) {
         console.error(error);
@@ -22,17 +23,31 @@ function verifytoken(req, res, next) {
     }
 }
 
-router.post('/project',verifytoken, async (req, res) => {
-    try {
-        const data = req.body;
-        const project = await Project.create(data); // Using create method directly
 
-        res.status(200).json({ message: 'Successfully submitted the project', projectId: project._id });
-    } catch (error) {
-        console.error(error);
-        res.status(400).json({ success: false, message: 'Error in the submission', error: error.message });
-    }
+router.post('/project', verifytoken, async (req, res) => {
+  try {
+      const data = req.body;
+      const userEmail = req.authUser.email;
+      const user = await userData.findOne({ email: userEmail });
+
+      if (!user) {
+          return res.status(404).json({ success: false, message: 'User not found' });
+      }
+
+      const projectData = {
+          ...data,
+          studentId: user._id, // Assign the user's ID to the studentId field
+      };
+
+      const project = await Project.create(projectData);
+
+      res.status(200).json({ message: 'Successfully submitted the project', projectId: project._id });
+  } catch (error) {
+      console.error(error);
+      res.status(400).json({ success: false, message: 'Error in the submission', error: error.message });
+  }
 });
+
 
 
 
