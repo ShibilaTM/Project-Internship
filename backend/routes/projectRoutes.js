@@ -74,7 +74,17 @@ router.get('/question', verifytoken, async (req, res) => {
 router.post('/subm',verifytoken, async (req, res) => {
     try {
       const data = req.body;
-      const submissions = await submission.create(data);
+      const userEmail = req.authUser.email;
+      const user = await userData.findOne({ email: userEmail });
+
+      if (!user) {
+          return res.status(404).json({ success: false, message: 'User not found' });
+      }
+      const submData = {
+        ...data,
+        studentId: user._id, // Assign the user's ID to the studentId field
+    };
+      const submissions = await submission.create(submData);
       res.status(200).json({ message: 'Successfully submitted' });
     } catch (error) {
       console.error(error);
