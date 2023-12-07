@@ -16,11 +16,16 @@ const userRoute = require('./routes/userRoute')
 const dashRoute = require('./routes/projectdashRoute')
 const gradeRoute = require('./routes/gradeRoute')
 const referenceRoute = require('./routes/referenceroute')
+const commentRoute = require('./routes/commentRoute')
+
 
 app.use('/user', userRoute)
 app.use('/dash', dashRoute)
 app.use('/grade', gradeRoute)
 app.use('/referenceroute', referenceRoute)
+app.use('/comments',commentRoute )
+
+
 
 
 const subRoute = require('./routes/projectRoutes')
