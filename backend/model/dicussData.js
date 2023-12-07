@@ -1,10 +1,20 @@
 const mongoose = require('mongoose');
+const {username} = mongoose.Schema;
 const discussSchema = mongoose.Schema({
   title:String,
   query:String,
-  date:Date
+  date:Date,
+  // comments:[{
 
 
+  //   text:String,
+  //   cerated:{type:Date, default:Date.now},
+  //   postedBy:{type:username, ref:'user'}
+  
+  
+  // }
+
+  // ]
 })
 
 const Data=mongoose.model('discussDatas',discussSchema)

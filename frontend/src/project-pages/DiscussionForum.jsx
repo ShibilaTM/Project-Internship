@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
+import React from 'react'
 
 import axios from "axios";
+
 import QuestionAnswerRoundedIcon from "@mui/icons-material/QuestionAnswerRounded";
-import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
 import "./css/dicussform.css";
@@ -24,13 +25,20 @@ import {
   Typography,
 } from "@mui/material";
 import { yellow } from "@mui/material/colors";
+import CommentList from "./comment/CommentList";
+import AddComment from "./comment/AddComment";
+
+
+
 
 const DiscussionForum = (props) => {
+
+
   // GET Operation----------------------------------
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:4000/dash/")
+      .get("http://127.0.0.1:4000/dash/")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -39,7 +47,7 @@ const DiscussionForum = (props) => {
   const [form, setForm] = useState({
     title: "",
     query: "",
-    date: Date.now(),
+    date: Date.now() 
   });
 
   const [open, setOpen] = React.useState(false);
@@ -63,7 +71,7 @@ const DiscussionForum = (props) => {
     if (selectedValue._id) {
       // If _id exists, it's an update
       axios
-        .put("http://localhost:4000/dash/edit/" + selectedValue._id, form)
+        .put("http://127.0.0.1:4000/dash/edit/" + selectedValue._id, form)
         .then((response) => {
           if (response.data === "Updated successfully") {
             alert(response.data);
@@ -74,7 +82,7 @@ const DiscussionForum = (props) => {
         });
     } else {
       // Otherwise, it's a new post
-      axios.post("http://localhost:4000/dash/add", form).then((res) => {
+      axios.post("http://127.0.0.1:4000/dash/add", form).then((res) => {
         alert(res.data);
       });
     }
@@ -83,11 +91,32 @@ const DiscussionForum = (props) => {
 
   // DELETE-------------------------
   function removeBlog(id) {
-    axios.delete("http://localhost:4000/dash/remove/" + id).then((res) => {
+    axios.delete("http://127.0.0.1:4000/dash/remove/" + id).then((res) => {
       alert(res.data);
       window.location.reload(false);
     });
   }
+
+
+
+  //Comment Section---------------------
+
+  // const [comment, setComment] = useState([]);
+  // const [comForm, setComform] = useState([]);
+
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:4000/comments/")
+  //     .then((res) => setComment(res.data))
+  //     .catch((err) => console.log(err));
+  // }, []);
+
+
+  const [userId, setUserId] = useState('');
+
+
+
+
 
   return (
     <div>
@@ -183,29 +212,16 @@ const DiscussionForum = (props) => {
               </CardContent>
               <Divider />
 
-              <div className="comment"> Comments </div>
+             
+
+        <CommentList userId={userId} />
+ 
+              
+            
 
               <Divider />
+     <AddComment userId={userId} />
 
-              <Grid container spacing={2}>
-                <Grid item xs={10}>
-                  <TextField
-                    style={{ padding: "5px", margin: "5px" }}
-                    fullWidth
-                    label="Write your comments....."
-                    id="filled-basic"
-                    variant="filled"
-                  />
-                </Grid>
-                <Grid item xs={2}>
-                  <Button
-                    style={{ marginTop: "15px", marginLeft: "5em" }}
-                    variant="outlined"
-                  >
-                    <SendRoundedIcon />
-                  </Button>
-                </Grid>
-              </Grid>
             </Card>
           </Grid>
           <Grid item xs={1}>
