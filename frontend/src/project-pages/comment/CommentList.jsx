@@ -1,23 +1,27 @@
-// CommentList.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Grid } from '@mui/material';
 
-const CommentList = ({ userId }) => {
+const CommentList = ({ discussionId }) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    // Fetch comments for the specific user
-    axios.get(`http://127.0.0.1:4000/comments/${userId}`)
-      .then(response => setComments(response.data))
-      .catch(error => console.error('Error fetching comments:', error));
-  }, [userId]);
+    // Fetch comments for the specific discussion
+    axios.get(`http://127.0.0.1:4000/comments/view/${discussionId}`)
+      .then((res) => setComments(res.data))
+      .catch((err) => console.error('Error fetching comments:', err));
+  }, [discussionId]);
 
   return (
     <div>
-      <h2>Comments</h2>
       <ul>
-        {comments.map(comment => (
-          <li key={comment._id}>{comment.text}</li>
+        {comments.map((comment, index) => (
+          
+          <Grid sx={{paddingLeft:'10px'}} style={{color:'silver', fontSize:'18px'}} key={index} >
+     {comment.text}
+
+          </Grid>
+     
         ))}
       </ul>
     </div>
