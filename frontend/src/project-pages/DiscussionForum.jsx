@@ -212,15 +212,19 @@ const DiscussionForum = (props) => {
               </CardContent>
               <Divider />
 
-             
-
-        <CommentList userId={userId} />
+            <Grid sx={{padding:'23px'}}>
+            <CommentList discussionId={val._id} />
  
+
+
+            </Grid>
+
+          
               
             
 
               <Divider />
-     <AddComment userId={userId} />
+              <AddComment   discussionData={val._id}/>
 
             </Card>
           </Grid>
