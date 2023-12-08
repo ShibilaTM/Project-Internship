@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Grid } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Divider, Grid, Typography } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const CommentList = ({ discussionId }) => {
   const [comments, setComments] = useState([]);
@@ -10,20 +11,40 @@ const CommentList = ({ discussionId }) => {
     axios.get(`http://127.0.0.1:4000/comments/view/${discussionId}`)
       .then((res) => setComments(res.data))
       .catch((err) => console.error('Error fetching comments:', err));
+      
   }, [discussionId]);
-
+ 
   return (
     <div>
-      <ul>
-        {comments.map((comment, index) => (
-          
-          <Grid sx={{paddingLeft:'10px'}} style={{color:'silver', fontSize:'18px'}} key={index} >
-     {comment.text}
 
-          </Grid>
-     
-        ))}
-      </ul>
+<Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+  
+          <Typography>Comments</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+        {comments.map((comment, index) => (
+
+
+          
+<Grid sx={{paddingLeft:'10px'}} style={{color:'silver', fontSize:'18px'}} key={index} >
+{comment.text}
+
+<Divider />
+</Grid>
+
+
+))}
+        </AccordionDetails>
+      </Accordion>
+      
+   
+      
+
     </div>
   );
 };

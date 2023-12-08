@@ -23,6 +23,7 @@ const AddComment = ({ discussionData }) => {
     axios.post('http://127.0.0.1:4000/comments/add', commentData)
       .then((res) => {
         alert(res.data.message);
+        window.location.reload(false);
       })
       .catch((err) => {
         console.error('Error adding comment:', err);
