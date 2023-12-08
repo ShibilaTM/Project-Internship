@@ -84,9 +84,10 @@ const DiscussionForum = (props) => {
       // Otherwise, it's a new post
       axios.post("http://127.0.0.1:4000/dash/add", form).then((res) => {
         alert(res.data);
+        window.location.reload(false);
       });
     }
-    setOpen(false);
+   
   };
 
   // DELETE-------------------------
