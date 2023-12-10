@@ -1,6 +1,5 @@
 
 
-
 import { Button, TextField } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import './Submission.css';
@@ -19,10 +18,10 @@ const Submissions = () => {
 
   useEffect(() => {
     // Check if the user has already submitted
-    const hasSubmitted = sessionStorage.getItem('hasSubmitted') === 'true';
-
+    const userEmail = sessionStorage.getItem('userEmail'); // Assuming you store the user email after login
+    console.log('user',userEmail)
     // Fetch question and deadline from the backend when the component mounts
-    axiosInstance.get('http://127.0.0.1:4000/form/question')
+    axiosInstance.get(`http://127.0.0.1:4000/form/question?userEmail=${userEmail}`)
       .then((response) => {
         setQuestion(response.data.question);
         setDeadline(response.data.deadline);
@@ -30,6 +29,10 @@ const Submissions = () => {
         // Check if submission is allowed based on the current date and deadline
         const now = new Date();
         const deadlineDate = new Date(response.data.deadline);
+
+        // Check if the user has already submitted
+        const hasSubmitted = localStorage.getItem(`hasSubmitted_${userEmail}`) === 'true';
+
         setIsSubmissionAllowed(now < deadlineDate && !hasSubmitted);
       })
       .catch((error) => {
@@ -54,13 +57,15 @@ const Submissions = () => {
       return;
     }
 
-    axiosInstance.post('http://127.0.0.1:4000/form/subm', subm)
+    const userEmail = sessionStorage.getItem('userEmail'); // Assuming you store the user email after login
+
+    axiosInstance.post(`http://127.0.0.1:4000/form/subm?userEmail=${userEmail}`, subm)
       .then((res) => {
         alert(res.data.message);
         setIsSubmissionAllowed(false); // Disable further submissions after the first one
 
-        // Store the submission flag in sessionStorage
-        sessionStorage.setItem('hasSubmitted', 'true');
+        // Store the submission flag in localStorage
+        localStorage.setItem(`hasSubmitted_${userEmail}`, 'true');
       })
       .catch((error) => {
         console.error('Error submitting form:', error);
@@ -90,7 +95,7 @@ const Submissions = () => {
       <div className='input'>
         <h2>Submissions</h2>
         <br />
-        <p><b>Assignment: {question}</b></p>
+        <p><b> {question}</b></p>
         <p>Deadline: {deadline}</p>
         <p>Time Remaining: {calculateTimeRemaining()}</p>
         <br />
