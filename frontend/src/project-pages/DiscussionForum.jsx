@@ -128,14 +128,14 @@ const DiscussionForum = (props) => {
       <br />
       <br />
 
-      <Grid container spacing={2}>
+      <Grid container spacing={2}  >
         <Grid item xs={11}>
           <Card style={{ padding: "1em" }}>
-            <Grid container spacing={2}>
-              <Grid item xs={6} sm={8} md={11}>
+            <Grid container >
+              <Grid item xs={5} sm={9} md={10}>
                 Queries
               </Grid>
-              <Grid item xs={6} sm={4} md={1}>
+              <Grid item xs={7} sm={3} md={2}>
                 <React.Fragment>
                   <Button variant="contained" onClick={handleClickOpen}>
                     Add Queries
@@ -190,9 +190,9 @@ const DiscussionForum = (props) => {
 
       <br />
       {data.map((val, i) => (
-        <Grid key={i} container spacing={2} style={{ marginBottom: "8px" }}>
-          <Grid item xs={11}>
-            <Card sx={{ minWidth: 275 }}>
+        <Grid key={i} sx={{padding:'2px 2px'}}container spacing={2} style={{ marginBottom: "8px" }}>
+          <Grid item  sm={9} md={11} >
+            <Card  sx={{ minWidth: 275 }} >
               <CardContent>
                 <Typography
                   sx={{ fontSize: 14 }}
@@ -229,7 +229,7 @@ const DiscussionForum = (props) => {
 
             </Card>
           </Grid>
-          <Grid item xs={1}>
+          <Grid item sm={3} md={1}>
             <Grid style={{ margin: "20px" }}>
               <Button variant="outlined" onClick={() => handleClickOpen(val)}>
                 <EditRoundedIcon style={{ fill: "#192A56" }} />
