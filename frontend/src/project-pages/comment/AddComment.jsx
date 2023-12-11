@@ -34,19 +34,19 @@ const AddComment = ({ discussionData }) => {
 
   return (
     <div>
-      <Grid container spacing={2}>
-        <Grid item xs={10}>
+      <Grid container spacing={0}>
+        <Grid item xs={6} sm={8} md={9}>
           <TextField
             style={{ padding: '5px', margin: '5px' }}
             fullWidth
-            label="Write your comments....."
+            label=" Comments....."
             id="filled-basic"
             variant="filled"
             value={newComment}
             onChange={handleCommentChange}
           />
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={6} sm={4} md={3}>
           <Button
             style={{ marginTop: '15px', marginLeft: '5em' }}
             variant="outlined"

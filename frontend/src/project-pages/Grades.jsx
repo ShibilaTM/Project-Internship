@@ -28,7 +28,7 @@ const Grades = () => {
       </h2>
 <br /><br />
 
-     <Grid container spacing={2}>
+     <Grid container spacing={2} xs={10} sm={10} md={12}>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead style={{ backgroundColor: "#3c40c6" }}>

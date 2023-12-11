@@ -31,7 +31,7 @@ const CommentList = ({ discussionId }) => {
 
 
           
-<Grid sx={{paddingLeft:'10px'}} style={{color:'silver', fontSize:'18px'}} key={index} >
+<Grid sx={{paddingLeft:'10px'}} style={{color:'silver', fontSize:'13px'}} key={index} >
 {comment.text}
 
 <Divider />
