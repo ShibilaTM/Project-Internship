@@ -132,10 +132,10 @@ const DiscussionForum = (props) => {
         <Grid item xs={11}>
           <Card style={{ padding: "1em" }}>
             <Grid container spacing={2}>
-              <Grid item xs={10}>
+              <Grid item xs={6} sm={8} md={11}>
                 Queries
               </Grid>
-              <Grid item xs={2}>
+              <Grid item xs={6} sm={4} md={1}>
                 <React.Fragment>
                   <Button variant="contained" onClick={handleClickOpen}>
                     Add Queries
