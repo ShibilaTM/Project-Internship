@@ -48,6 +48,13 @@ const Signup = () => {
     let isValid = true;
     const newErrors = {};
 
+    //username checking
+    
+    if (!user.username.trim()) {
+      newErrors.username = 'Username is required';
+      isValid = false;
+    }
+
     if (!validateEmail(user.email)) {
       newErrors.email = 'Invalid email address';
       isValid = false;

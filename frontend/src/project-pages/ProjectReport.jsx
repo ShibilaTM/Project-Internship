@@ -120,6 +120,13 @@ const ProjectReport = () => {
       return;
     }
 
+      // Check if any of the fields is empty
+  for (const field in project) {
+    if (!project[field].trim()) {
+      alert('All fields are required');
+      return;
+    }
+  }
 
     const userEmail = localStorage.getItem('userEmail');
     // Include the user's email in the payload
