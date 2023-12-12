@@ -27,57 +27,65 @@ import Mobile from "./Referencepages/Mobile"
 import Software from "./Referencepages/Software"
 import Web from "./Referencepages/Web"
 import Uiuix from "./Referencepages/Uiuix"
+import Cringe from './protectroutes/Cringe';
+import Auth from './protectroutes/Auth';
+
+
 
 
 
 
 
 function App() {
+
     return (
         <div>
             <Router>
+
                 <Routes>
                     <Route path="/" element={<Main child={<Home />} />} />
-                    <Route path="/internshippage1" element={< Internshipdynamicpage heading={Theinternshipdetails[0].heading} content={Theinternshipdetails[0].content} image={Theinternshipdetails[0].image} morecontent={Theinternshipdetails[0].morecontent} />} />
-                    <Route path="/internshippage2" element={< Internshipdynamicpage heading={Theinternshipdetails[1].heading} content={Theinternshipdetails[1].content} image={Theinternshipdetails[1].image} morecontent={Theinternshipdetails[1].morecontent} />} />
-                    <Route path="/internshippage3" element={< Internshipdynamicpage heading={Theinternshipdetails[2].heading} content={Theinternshipdetails[2].content} image={Theinternshipdetails[2].image} morecontent={Theinternshipdetails[2].morecontent} />} />
-                    <Route path="/internshippage4" element={< Internshipdynamicpage heading={Theinternshipdetails[3].heading} content={Theinternshipdetails[3].content} image={Theinternshipdetails[3].image} morecontent={Theinternshipdetails[3].morecontent} />} />
-                    <Route path="/internshippage5" element={< Internshipdynamicpage heading={Theinternshipdetails[4].heading} content={Theinternshipdetails[4].content} image={Theinternshipdetails[4].image} morecontent={Theinternshipdetails[4].morecontent} />} />
-                    <Route path="/internshippage6" element={< Internshipdynamicpage heading={Theinternshipdetails[5].heading} content={Theinternshipdetails[5].content} image={Theinternshipdetails[5].image} morecontent={Theinternshipdetails[5].morecontent} />} />
-                    <Route path="/alltheroutes" element={<Main child={<Alltheroutes />} />} />
                     <Route path='/login' element={<Login />}></Route>
                     <Route path='/signup' element={<Signup />}></Route>
-                    <Route path="/alltheroutes" element={<Main child={<Alltheroutes />} />} />
-                    <Route path='/login' element={<Login />}></Route>
-                    <Route path='/signup' element={<Signup />}></Route>
-                    <Route path='/studentdashboard' element={<Studentdashboard />}></Route>
-                    <Route path='/quiz' element={<ProMain><Quiz /></ProMain>} />
 
-                    <Route path='/dash' element={<ProMain><ReferenceHome /></ProMain>} />
-
-                    <Route path='/submissions' element={<ProMain><Submissions /></ProMain>} />
-                    <Route path='/referencehome' element={<ProMain><ReferenceHome /></ProMain>} />
-
-                    <Route path='/projectreport' element={<ProMain><ProjectReport /></ProMain>} />
-                    <Route path='/referencematerials' element={<ProMain><Referencematerial /></ProMain>} />
-                    <Route path='/viva' element={<ProMain><Vivavoce /></ProMain>} />
-                    <Route path='/discussion' element={<ProMain><DiscussionForum /></ProMain>} />
-                    <Route path='/grades' element={<ProMain><Grades /></ProMain>} />
+                    <Route path='/studentdashboard' element={<Auth > <Studentdashboard /></Auth>} />
 
 
-                    <Route path='/cyber' element={<ProMain><Cyber /></ProMain>} />
-                    <Route path='/software' element={<ProMain><Software /></ProMain>} />
-                    <Route path='/web' element={<ProMain><Web /></ProMain>} />
-                    <Route path='/datasci' element={<ProMain><Datasci /></ProMain>} />
-                    <Route path='/mobile' element={<ProMain><Mobile /></ProMain>} />
-                    <Route path='/uiuix' element={<ProMain><Uiuix /></ProMain>} />
+
+                    <Route path="/internshippage1" element={<Auth>  < Internshipdynamicpage heading={Theinternshipdetails[0].heading} content={Theinternshipdetails[0].content} image={Theinternshipdetails[0].image} morecontent={Theinternshipdetails[0].morecontent} /></Auth>} />
+                    <Route path="/internshippage2" element={<Auth>  < Internshipdynamicpage heading={Theinternshipdetails[1].heading} content={Theinternshipdetails[1].content} image={Theinternshipdetails[1].image} morecontent={Theinternshipdetails[1].morecontent} /></Auth>} />
+                    <Route path="/internshippage3" element={<Auth>  < Internshipdynamicpage heading={Theinternshipdetails[2].heading} content={Theinternshipdetails[2].content} image={Theinternshipdetails[2].image} morecontent={Theinternshipdetails[2].morecontent} /></Auth>} />
+                    <Route path="/internshippage4" element={<Auth>  < Internshipdynamicpage heading={Theinternshipdetails[3].heading} content={Theinternshipdetails[3].content} image={Theinternshipdetails[3].image} morecontent={Theinternshipdetails[3].morecontent} /></Auth>} />
+                    <Route path="/internshippage5" element={<Auth>  < Internshipdynamicpage heading={Theinternshipdetails[4].heading} content={Theinternshipdetails[4].content} image={Theinternshipdetails[4].image} morecontent={Theinternshipdetails[4].morecontent} /></Auth>} />
+                    <Route path="/internshippage6" element={<Auth>   < Internshipdynamicpage heading={Theinternshipdetails[5].heading} content={Theinternshipdetails[5].content} image={Theinternshipdetails[5].image} morecontent={Theinternshipdetails[5].morecontent} /></Auth>} />
+
+                    {/* <Route path="/alltheroutes" element={<Main child={<Alltheroutes />} />} /> */}
+
+                    <Route path='/quiz' element={<Auth><ProMain><Quiz /></ProMain></Auth>} />
+                    <Route path='/dash' element={<Auth><ProMain><ReferenceHome /></ProMain></Auth>} />
+                    <Route path='/submissions' element={<Auth><ProMain><Submissions /></ProMain></Auth>} />
+                    <Route path='/referencehome' element={<Auth><ProMain><ReferenceHome /></ProMain></Auth>} />
+                    <Route path='/projectreport' element={<Auth><ProMain><ProjectReport /></ProMain></Auth>} />
+                    <Route path='/referencematerials' element={<Auth><ProMain><Referencematerial /></ProMain></Auth>} />
+                    <Route path='/viva' element={<Auth><ProMain><Vivavoce /></ProMain></Auth>} />
+                    <Route path='/discussion' element={<Auth><ProMain><DiscussionForum /></ProMain></Auth>} />
+                    <Route path='/grades' element={<Auth><ProMain><Grades /></ProMain></Auth>} />
+                    <Route path='/cyber' element={<Auth><ProMain><Cyber /></ProMain></Auth>} />
+                    <Route path='/software' element={<Auth><ProMain><Software /></ProMain></Auth>} />
+                    <Route path='/web' element={<Auth><ProMain><Web /></ProMain></Auth>} />
+                    <Route path='/datasci' element={<Auth><ProMain><Datasci /></ProMain></Auth>} />
+                    <Route path='/mobile' element={<Auth><ProMain><Mobile /></ProMain></Auth>} />
+                    <Route path='/uiuix' element={<Auth><ProMain><Uiuix /></ProMain></Auth>} />
+
+
+
+
                 </Routes>
                 {/* <Internshipdynamicpage>
                     <ProjectReport />
                 </Internshipdynamicpage> */}
             </Router>
 
-        </div>
+        </div >
     );
 }
 

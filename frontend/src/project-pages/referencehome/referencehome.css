@@ -17,11 +17,10 @@
 }
 
 .containeroftheprojectreport {
-    height: 100vh;
-    background: linear-gradient(rgba(5, 60, 87, 0.849), rgb(3, 96, 133)),
-        url(../../Images/webdeveopment.jpg);
+    background-color: rgb(3, 96, 133);
+
+
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-position: center;
 
     align-items: center;

@@ -5,7 +5,7 @@ const userSchema = new Schema({
     username: {
         type: String,
         required: true,
-        // unique: true
+        unique: true
     },
     email: {
         type: String,
@@ -35,15 +35,22 @@ const userSchema = new Schema({
             message: 'Password must be 8-12 characters and include at least one uppercase letter, one lowercase letter, and one digit'
         }
     },
-    phonenumber:{
-        type:Number,
-        required:true,
-        validate:{
-            validator:function(value){
-                return  /^\d{10}$/.test(value);
+    phonenumber: {
+        type: Number,
+        required: true,
+        validate: {
+            validator: function (value) {
+                return /^\d{10}$/.test(value);
             },
-            message:'phone number should be valid'
+            message: 'phone number should be valid'
         }
+    },
+    internshipname: {
+        type: String,
+    },
+    isinternshipselected: {
+        type: Boolean,
+        default: false // You can set a default value if needed
     }
 });
 

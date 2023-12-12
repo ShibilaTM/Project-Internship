@@ -14,10 +14,11 @@ const ProjectReport = () => {
 
   const NameoftheIntership = async () => {
     try {
-      const apiUrl = 'http://127.0.0.1:4000/referenceroute/selectedinternship';
+      const apiUrl = 'http://127.0.0.1:4000/user/selectedinternship';
       const response = await axios.get(apiUrl);
       console.log('Success:', response.data);
-      setSelectedInternship(response.data.nameoftheinternship[0].internshipname)
+      setSelectedInternship(response.data.doc.internshipname)
+
       console.log('selectedInternship:', selectedInternship);
     } catch (error) {
       console.error('Error:', error.message);

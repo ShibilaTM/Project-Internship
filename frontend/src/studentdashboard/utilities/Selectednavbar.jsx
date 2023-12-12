@@ -15,7 +15,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Navigate, useNavigate } from 'react-router-dom';
-
+import Logo_ict from '../../Images/Logo_ict.png';
 
 
 function Selectednavbar(props) {
@@ -64,7 +64,7 @@ function Selectednavbar(props) {
     return (
         <Box sx={{ display: 'flex' }} >
             <CssBaseline />
-            <AppBar component="nav" sx={{ backgroundColor: '#5C5470' }}>
+            <AppBar component="nav" sx={{ backgroundColor: 'white' }}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -78,8 +78,9 @@ function Selectednavbar(props) {
                     <Typography
                         variant="h6"
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block', color: "black" } }}
                     >
+                        {/* <img style={{ height: "40px", widows: "40px" }} src={Logo_ict} alt="" /> */}
                         {heading}
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
@@ -88,10 +89,10 @@ function Selectednavbar(props) {
                                 {item}
                             </Button>
                         ))} */}
-                        <Button onClick={HandleHomebuttonclick} sx={{ color: '#fff' }}>
+                        <Button onClick={HandleHomebuttonclick} sx={{ color: 'black' }}>
                             HomePage
                         </Button>
-                        <Button onClick={HandleLogoutclick} sx={{ color: '#fff' }}>
+                        <Button onClick={HandleLogoutclick} sx={{ color: 'black' }}>
                             Logout
                         </Button>
                     </Box>

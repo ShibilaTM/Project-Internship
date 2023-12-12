@@ -1,6 +1,6 @@
 import axios from "axios"
 // import "../projectreport/projectreport.css"
-import "../referencehome/referencehome.css"
+import "/referencehome.css"
 import { useEffect, useState } from "react"
 
 import { Grid } from "@mui/material"
