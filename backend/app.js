@@ -17,19 +17,22 @@ const dashRoute = require('./routes/projectdashRoute')
 const gradeRoute = require('./routes/gradeRoute')
 const referenceRoute = require('./routes/referenceroute')
 const commentRoute = require('./routes/commentRoute')
-
+const isloggedinRoute = require("./routes/isloggedinRoute")
 
 app.use('/user', userRoute)
 app.use('/dash', dashRoute)
 app.use('/grade', gradeRoute)
 app.use('/referenceroute', referenceRoute)
-app.use('/comments',commentRoute )
+app.use('/comments', commentRoute)
+app.use('/protection', isloggedinRoute)
 
 
 
 
 const subRoute = require('./routes/projectRoutes')
 app.use('/form', subRoute)
+const Studentdashboard = require('./routes/Studentdashboard')
+app.use('/studentdashboardcheck', Studentdashboard)
 
 app.listen(PORT, () => {
     console.log(`server is running on ${PORT}`)

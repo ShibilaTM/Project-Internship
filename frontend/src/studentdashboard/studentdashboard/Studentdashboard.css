@@ -1,0 +1,38 @@
+/* Default styles for screens wider than 768 pixels */
+
+
+.mapcontainer {
+
+    color: pink;
+}
+
+
+
+/* Media query  */
+@media (max-width: 900px) {
+
+
+    /* .mapofthestudentdash {
+        width: "";
+    } */
+    .mapcontainer {
+
+        background: pink;
+        border: 12px solid red;
+
+    }
+
+
+}
+
+.bodyofthestudentdash {
+    width: 100%;
+
+    background: linear-gradient(rgba(5, 60, 87, 0.849), rgb(3, 96, 133)),
+        url(../../Images/background.jpg);
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-position: center;
+    /* display: flex; */
+    align-items: center;
+}

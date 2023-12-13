@@ -1,5 +1,5 @@
 const userData = require('../model/userData');
-const Internshipdetail = require("../model/userInternshipDetails")
+// const Internshipdetail = require("../model/userInternshipDetails")
 const router = require('express').Router();
 const cors = require('cors');
 router.use(cors());
@@ -37,6 +37,14 @@ router.post('/login', async (req, res) => {
         }
 
         const user = await userData.findOne({ email });
+        console.log("user the user is ", user);
+
+
+
+        idString = user._id;
+        const x = idString.toString();
+        IDofthecurrentuser = x;
+        console.log('IDofthecurrentuser: in login', IDofthecurrentuser);
 
         if (user) {
             // Compare the provided password with the password stored in the database
@@ -56,51 +64,30 @@ router.post('/login', async (req, res) => {
     }
 });
 
+
+
 //STUDENT DASHBOARD =====>
 
-// router.post('/selectedinternship', async (req, res) => {
-//     try {
-
-//         console.log("reqest body of selected internship", req.body)
-
-
-//         const Userinternshipinfo = new Internshipdetail(req.body);
-//         const savedInternship = await Userinternshipinfo.save();
-//         console.log(savedInternship, "savedinternship")
-//         res.status(200).json({ message: 'successfully registered', internships: savedInternship });
-//         //global variable
-
-//         idString = savedInternship._id;
-//         const x = idString.toString();
-//         IDofthecurrentuser = x;
-//         String(IDofthecurrentuser);
-//         console.log('IDofthecurrentuser', typeof IDofthecurrentuser);
-//         // console.log('IDofthecurrentuser', IDofthecurrentuser.type);
-
-
-//     } catch (error) {
-
-//         res.status(400).json(error);
-//     }
-// });
-
-
-router.post('/selectedinternship', async (req, res) => {
+router.put('/selectedinternship', async (req, res) => {
     try {
-        console.log("Request body of selected internship:", req.body);
 
-        const Userinternshipinfo = new Internshipdetail(req.body);
-        const savedInternship = await Userinternshipinfo.save();
+        const doc = await userData.findById(IDofthecurrentuser)
+        doc.internshipname = req.body.internshipname
+        doc.isinternshipselected = true
 
-        console.log("Saved internship:", savedInternship);
+        await doc.save();
+
+        console.log("selected internship ha ,", doc, req.body)
+        // doc = req.body;
+        // const Userinternshipinfo = new Internshipdetail(req.body);
+        // // const savedInternship = await Userinternshipinfo.save();
+
+        // console.log("Saved internship:", savedInternship);
 
         // Set the global variable
-        idString = savedInternship._id;
-        const x = idString.toString();
-        IDofthecurrentuser = x;
-        console.log('IDofthecurrentuser:', IDofthecurrentuser);
 
-        res.status(200).json({ message: 'Successfully registered', internships: savedInternship });
+
+        res.status(200).json({ message: 'Successfully registered', reqsbody: req.body });
     } catch (error) {
         console.error("Error:", error);
         res.status(400).json({ error: 'Failed to register internship' });
@@ -109,31 +96,16 @@ router.post('/selectedinternship', async (req, res) => {
 
 
 
+
 router.get('/selectedinternship', async (req, res) => {
     try {
-        // Fetch all internship details from the database
-        const Nameoftheinternship = await Internshipdetail.find({ _id: IDofthecurrentuser });
 
-
-        console.log("Name of the internship", Nameoftheinternship);
-        res.status(200).json({ nameoftheinternship: Nameoftheinternship });
+        const doc = await userData.findById(IDofthecurrentuser)
+        console.log("selected internship ha ,", doc, req.body)
+        res.status(200).json({ message: 'Successfully registered', doc: doc });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Internal server error' });
+        console.error("Error:", error);
+        res.status(400).json({ error: 'Failed to register internship' });
     }
 });
-
-// router.get('/emailoftheuser', async (req, res) => {
-//     try {
-//         // Fetch all internship details from the database
-//         const Dataoftheuser = await userData.find();
-//         console.log("Dataoftheuser", Dataoftheuser);
-//         res.status(200).json({ Dataoftheuser: Dataoftheuser });
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).json({ message: 'Internal server error' });
-//     }
-// });
-
-
 module.exports = router;

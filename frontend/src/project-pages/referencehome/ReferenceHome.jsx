@@ -1,12 +1,14 @@
-import axios from "axios"
-// import "../projectreport/projectreport.css"
-import "../referencehome/referencehome.css"
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
-import { Grid } from "@mui/material"
+import axios from "axios";
+
+// import "../projectreport/projectreport.css"
+import "/referencehome.css";
+
+import { Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const ProjectReport = () => {
+const ReferenceHome = () => {
   const [selectedInternship, setSelectedInternship] = useState("")
   const Navigate = useNavigate();
 
@@ -44,12 +46,11 @@ const ProjectReport = () => {
   }
   useEffect(() => {
     NameoftheIntership()
-  })
+  }, [NameoftheIntership])
   return (
     <div className="containeroftheprojectreport">
       <div style={{ height: "100px" }}></div>
       <div className="smallcontaineroftheprojectreport">
-
 
         <h1 className="h1oftheprojectreport">
           {selectedInternship}
@@ -65,8 +66,7 @@ const ProjectReport = () => {
 
           </Grid>
           <Grid item lg={6}>
-            <a download="Random.pdf" className="refmaterialsbuttonoftheprojectreport" onClick={handlerefmaterbuttonclick}>Reference materials</a>
-
+            <a download="Random.pdf" href="#" className="refmaterialsbuttonoftheprojectreport" onClick={handlerefmaterbuttonclick}>Reference materials</a>
           </Grid>
         </Grid>
       </div >
@@ -75,4 +75,4 @@ const ProjectReport = () => {
   )
 }
 
-export default ProjectReport
+export default ReferenceHome
