@@ -11,9 +11,9 @@ router.get('/view/:id', async (req, res) => {
     const comments = await Comment.find({ discussData: discussId });
     res.json(comments);
   } catch (error) {
-    res.status(500).json({ message: error.message });
-    }
-  });
+    res.status(500).json({ message: error.message });
+  }
+});
 
 
 router.post('/add', async (req, res) => {

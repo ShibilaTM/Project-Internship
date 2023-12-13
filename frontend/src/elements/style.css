@@ -103,8 +103,18 @@ footer span {
   justify-content: space-evenly;
   font-family: "Raleway", sans-serif;
   text-align: center;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   align-items: center;
+ 
+}
+
+
+@media screen and (max-width:650px) { 
+  .card{
+
+    flex-direction: column;
+  }
+  
 }
 
 .card-item {
