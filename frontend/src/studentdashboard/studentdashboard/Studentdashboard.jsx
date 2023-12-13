@@ -44,11 +44,11 @@ const Studentdashboard = () => {
             navigate("/referencehome")
         }
     }
-    // useEffect(() => {
-    //     getisinternshipselected()
+    useEffect(() => {
+        getisinternshipselected()
 
 
-    // })
+    })
 
     return (
         <div className='bodyofthestudentdash'>
