@@ -2,12 +2,13 @@ import { Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, Ta
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import GradingIcon from '@mui/icons-material/Grading';
+import axiosInstance from '../axiosinterceptor';
 
 const Grades = () => {
 
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios
+    axiosInstance
       .get("http://localhost:4000/grade/")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));

@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Accordion, AccordionDetails, AccordionSummary, Divider, Grid, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import axiosInstance from '../../axiosinterceptor';
 
 const CommentList = ({ discussionId }) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
     // Fetch comments for the specific discussion
-    axios.get(`http://127.0.0.1:4000/comments/view/${discussionId}`)
+    axiosInstance.get(`http://127.0.0.1:4000/comments/view/${discussionId}`)
       .then((res) => setComments(res.data))
       .catch((err) => console.error('Error fetching comments:', err));
       

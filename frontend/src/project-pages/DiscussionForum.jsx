@@ -1,8 +1,9 @@
 import  { useEffect, useState } from "react";
 import React from 'react'
 
-import axios from "axios";
 
+import axios from "axios";
+import axiosInstance from '../axiosinterceptor';
 import QuestionAnswerRoundedIcon from "@mui/icons-material/QuestionAnswerRounded";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
@@ -37,7 +38,7 @@ const DiscussionForum = (props) => {
   // GET Operation----------------------------------
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios
+    axiosInstance
       .get("http://127.0.0.1:4000/dash/")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
@@ -71,7 +72,7 @@ const DiscussionForum = (props) => {
     if (selectedValue._id) {
   
       // If _id exists, it's an update
-      axios
+      axiosInstance
         .put("http://127.0.0.1:4000/dash/edit/" + selectedValue._id, form)
         .then((response) => {
           if (response.data === "Updated successfully") {
@@ -84,7 +85,7 @@ const DiscussionForum = (props) => {
     } else {
 
       // Otherwise, it's a new post
-      axios.post("http://127.0.0.1:4000/dash/add", form).then((res) => {
+      axiosInstance.post("http://127.0.0.1:4000/dash/add", form).then((res) => {
         alert(res.data);
         window.location.reload(false);
       });
@@ -94,7 +95,7 @@ const DiscussionForum = (props) => {
 
   // DELETE-------------------------
   function removeBlog(id) {
-    axios.delete("http://127.0.0.1:4000/dash/remove/" + id).then((res) => {
+    axiosInstance.delete("http://127.0.0.1:4000/dash/remove/" + id).then((res) => {
       alert(res.data);
       window.location.reload(false);
     });
