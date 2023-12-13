@@ -34,13 +34,28 @@ body {
 }
 
 .buttonoftheIntershippage {
-    text-align: end;
+    text-align: center;
     margin-left: 100px;
     height: 35px;
     width: fit-content;
     font-size: medium;
     background-color: white;
     color: black;
+    margin-bottom: 5px;
+
+    cursor: pointer;
+
+}
+
+
+.BackbuttonoftheIntershippage:hover {
+    border: 1px solid black;
+
+}
+
+.buttonoftheIntershippage:hover {
+    border: 1px solid black;
+
 }
 
 /* .h1oftheInternshippage {
@@ -51,11 +66,12 @@ body {
 .BackbuttonoftheIntershippage {
     padding-left: 50px;
     padding-right: 50px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-
-    margin-left: 400px;
+    padding-bottom: 5px;
+    padding-top: 8px;
+    cursor: pointer;
+    margin-left: 420px;
     font-size: medium;
+    transition: background-color 0.3s ease;
 }
 
 .h1promax {

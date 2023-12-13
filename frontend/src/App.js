@@ -14,12 +14,13 @@ import Vivavoce from "./project-pages/Vivavoce"
 import Dashboard from "./project-pages/Dashboard"
 import Grades from "./project-pages/Grades"
 
+
+
 import DiscussionForum from "./project-pages/DiscussionForum"
 import ReferenceHome from "./project-pages/ReferenceHome"
 import Referencematerial from "./project-pages/Referencematerial"
 import Submissions from "./project-pages/Submissions"
 import ProjectReport from "./project-pages/ProjectReport"
-import Quiz from "./Quiz/Quiz"
 
 import Cyber from "./Referencepages/Cyber"
 import Datasci from "./Referencepages/Datasci"
@@ -29,8 +30,20 @@ import Web from "./Referencepages/Web"
 import Uiuix from "./Referencepages/Uiuix"
 import Cringe from './protectroutes/Cringe';
 import Auth from './protectroutes/Auth';
+import Vivavoce1 from './project-pages/vivavoce/Vivavoce1';
+import Vivavoce2 from './project-pages/vivavoce/Vivavoce2';
+import Vivavoce3 from './project-pages/vivavoce/Vivavoce3';
+import Vivavoce4 from './project-pages/vivavoce/Vivavoce4';
+import Vivavoce5 from './project-pages/vivavoce/Vivavoce5';
+import Vivavoce6 from './project-pages/vivavoce/Vivavoce6';
 
 
+import Quiz from "./Quiz/Quiz"
+import Quiz2 from "./Quiz/Quiz2"
+import Quiz4 from "./Quiz/Quiz4"
+import Quiz5 from "./Quiz/Quiz5"
+import Quiz6 from "./Quiz/Quiz6"
+import QuizSE from "./Quiz/QuizSE"
 
 
 
@@ -76,6 +89,25 @@ function App() {
                     <Route path='/mobile' element={<Auth><ProMain><Mobile /></ProMain></Auth>} />
                     <Route path='/uiuix' element={<Auth><ProMain><Uiuix /></ProMain></Auth>} />
 
+                    <Route path='/viva1' element={<Auth><ProMain><Vivavoce1 /></ProMain></Auth>} />
+                    <Route path='/viva2' element={<Auth><ProMain><Vivavoce2 /></ProMain></Auth>} />
+
+                    <Route path='/viva3' element={<Auth><ProMain><Vivavoce3 /></ProMain></Auth>} />
+
+                    <Route path='/viva4' element={<Auth><ProMain><Vivavoce4 /></ProMain></Auth>} />
+
+                    <Route path='/viva5' element={<Auth><ProMain><Vivavoce5 /></ProMain></Auth>} />
+
+                    <Route path='/viva6' element={<Auth><ProMain><Vivavoce6 /></ProMain></Auth>} />
+
+
+                    <Route path='/quiz' element={<Auth><ProMain><Quiz /></ProMain></Auth>} />
+                    <Route path='/Quiz2' element={<Auth><ProMain><Quiz2 /></ProMain></Auth>} />
+                    <Route path='/QuizSE' element={<Auth><ProMain><QuizSE /></ProMain></Auth>} />
+
+                    <Route path='/Quiz4' element={<Auth><ProMain><Quiz4 /></ProMain></Auth>} />
+                    <Route path='/Quiz5' element={<Auth><ProMain><Quiz5 /></ProMain></Auth>} />
+                    <Route path='/Quiz6' element={<Auth><ProMain><Quiz6 /></ProMain></Auth>} />
 
 
 

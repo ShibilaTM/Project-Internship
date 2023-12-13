@@ -69,7 +69,7 @@ const ProjectReport = () => {
 
           </Grid>
           <Grid item lg={6}>
-            <a download="Random.pdf" className="refmaterialsbuttonoftheprojectreport" onClick={handlerefmaterbuttonclick}>Reference materials</a>
+            <a download="Random.pdf" className="refmaterialsbuttonoftheprojectreport" onClick={handlerefmaterbuttonclick}>REFERENCE MATERIALS</a>
 
           </Grid>
         </Grid>
