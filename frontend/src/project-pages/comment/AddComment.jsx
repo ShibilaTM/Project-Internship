@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Button, Grid, TextField } from '@mui/material';
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
+import axiosInstance from '../../axiosinterceptor';
 
 const AddComment = ({ discussionData }) => {
   const [newComment, setNewComment] = useState('');
@@ -20,7 +21,7 @@ const AddComment = ({ discussionData }) => {
       text: newComment,
     };
   
-    axios.post('http://127.0.0.1:4000/comments/add', commentData)
+    axiosInstance.post('http://127.0.0.1:4000/comments/add', commentData)
       .then((res) => {
         alert(res.data.message);
         window.location.reload(false);

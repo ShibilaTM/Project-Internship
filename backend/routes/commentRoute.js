@@ -2,9 +2,31 @@ const express = require('express');
 const router = express.Router();
 const Comment = require('../model/comment');
 const User = require('../model/userData');
+const cors = require('cors')
+router.use(cors());
+const jwt = require('jsonwebtoken');
+
+
+
+function verifytoken(req, res, next) {
+  try {
+      const token = req.headers.token;
+      if (!token) throw 'Token not provided';
+
+      const payload = jwt.verify(token, 'reactInternshipApp');
+      if (!payload) throw 'Invalid token';
+      req.authUser = payload; // Set authUser property
+      next();
+  } catch (error) {
+      console.error(error);
+      res.status(401).send('Unauthorized: ' + error);
+  }
+}
+
+
 
 // Get comments for a specific user
-router.get('/view/:id', async (req, res) => {
+router.get('/view/:id', verifytoken,async (req, res) => {
   const discussId = req.params.id;
 
   try {
@@ -16,7 +38,7 @@ router.get('/view/:id', async (req, res) => {
 });
 
 
-router.post('/add', async (req, res) => {
+router.post('/add',verifytoken, async (req, res) => {
   const { text, discussData } = req.body;
 
 try {
