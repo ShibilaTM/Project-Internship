@@ -1,9 +1,15 @@
 const mongoose = require('mongoose');
 const {username} = mongoose.Schema;
 const discussSchema = mongoose.Schema({
-  title:String,
-  query:String,
-  date:Date,
+  title:{
+    type: String,
+    
+  },
+  query:{
+    type: String,
+ 
+  },
+  date:{type:Date},
   // comments:[{
 
 

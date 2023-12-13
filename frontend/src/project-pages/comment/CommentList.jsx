@@ -17,7 +17,7 @@ const CommentList = ({ discussionId }) => {
   return (
     <div>
 
-<Accordion>
+<Accordion sx={{padding:'3px',margin:'8px'}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -31,7 +31,7 @@ const CommentList = ({ discussionId }) => {
 
 
           
-<Grid sx={{paddingLeft:'10px'}} style={{color:'silver', fontSize:'13px'}} key={index} >
+<Grid   style={{color:'silver', fontSize:'13px'}} key={index} >
 {comment.text}
 
 <Divider />

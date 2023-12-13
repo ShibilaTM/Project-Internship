@@ -69,6 +69,7 @@ const DiscussionForum = (props) => {
 
   const sumbmitform = () => {
     if (selectedValue._id) {
+  
       // If _id exists, it's an update
       axios
         .put("http://127.0.0.1:4000/dash/edit/" + selectedValue._id, form)
@@ -81,13 +82,14 @@ const DiscussionForum = (props) => {
           }
         });
     } else {
+
       // Otherwise, it's a new post
       axios.post("http://127.0.0.1:4000/dash/add", form).then((res) => {
         alert(res.data);
         window.location.reload(false);
       });
     }
-   
+    setOpen(false);
   };
 
   // DELETE-------------------------
@@ -128,10 +130,10 @@ const DiscussionForum = (props) => {
       <br />
       <br />
 
-      <Grid container spacing={2}  >
+      <Grid container spacing={2}>
         <Grid item xs={11}>
           <Card style={{ padding: "1em" }}>
-            <Grid container >
+            <Grid container spacing={2}>
               <Grid item xs={5} sm={9} md={10}>
                 Queries
               </Grid>
@@ -190,9 +192,9 @@ const DiscussionForum = (props) => {
 
       <br />
       {data.map((val, i) => (
-        <Grid key={i} sx={{padding:'2px 2px'}}container spacing={2} style={{ marginBottom: "8px" }}>
+        <Grid key={i} sx={{padding:'2px 2px'}} container spacing={2} style={{ marginBottom: "8px" }}>
           <Grid item  sm={9} md={11} >
-            <Card  sx={{ minWidth: 275 }} >
+            <Card sx={{ minWidth: 275 }}>
               <CardContent>
                 <Typography
                   sx={{ fontSize: 14 }}
@@ -213,13 +215,12 @@ const DiscussionForum = (props) => {
               </CardContent>
               <Divider />
 
-            <Grid sx={{padding:'23px'}}>
+
             <CommentList discussionId={val._id} />
  
 
 
-            </Grid>
-
+     
           
               
             
@@ -237,12 +238,12 @@ const DiscussionForum = (props) => {
             </Grid>
 
             <Grid style={{ margin: "20px" }}>
-              <Button variant="outlined">
+              <Button variant="outlined"     onClick={() => {
+                    removeBlog(val._id);
+                  }}>
                 <DeleteRoundedIcon
                   style={{ fill: "#192A56", cursor: "pointer" }}
-                  onClick={() => {
-                    removeBlog(val._id);
-                  }}
+              
                 />
               </Button>
             </Grid>
