@@ -23,6 +23,7 @@ const CommentList = ({ discussionId }) => {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
+          
         >
   
           <Typography>Comments</Typography>
