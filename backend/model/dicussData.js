@@ -3,10 +3,13 @@ const {username} = mongoose.Schema;
 const discussSchema = mongoose.Schema({
   title:{
     type: String,
+    required: true 
+
     
   },
   query:{
     type: String,
+    required: true 
  
   },
   date:{type:Date},

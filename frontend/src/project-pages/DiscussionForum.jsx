@@ -1,19 +1,16 @@
-import  { useEffect, useState } from "react";
-import React from 'react'
-
+import { useEffect, useState } from "react";
+import React from "react";
 
 import axios from "axios";
-import axiosInstance from '../axiosinterceptor';
+import axiosInstance from "../axiosinterceptor";
 import QuestionAnswerRoundedIcon from "@mui/icons-material/QuestionAnswerRounded";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
 import "./css/dicussform.css";
 import {
   Avatar,
-
   Button,
   Card,
-
   CardContent,
   Dialog,
   DialogActions,
@@ -29,12 +26,7 @@ import { yellow } from "@mui/material/colors";
 import CommentList from "./comment/CommentList";
 import AddComment from "./comment/AddComment";
 
-
-
-
 const DiscussionForum = (props) => {
-
-
   // GET Operation----------------------------------
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -48,7 +40,7 @@ const DiscussionForum = (props) => {
   const [form, setForm] = useState({
     title: "",
     query: "",
-    date: Date.now() 
+    date: Date.now(),
   });
 
   const [open, setOpen] = React.useState(false);
@@ -68,10 +60,27 @@ const DiscussionForum = (props) => {
     setOpen(false);
   };
 
+
+
+  const [errors, setErrors] = useState({});
+
   const sumbmitform = () => {
+   
+    const newErrors = {};
+
+
+    if (!form.title.trim() ||!form.query.trim() ) {
+      newErrors.title = 'Title  is required';
+      newErrors.query = 'query  is required';
+      setErrors(newErrors);
+
+      
+    }else{
+
+
     if (selectedValue._id) {
-  
       // If _id exists, it's an update
+
       axiosInstance
         .put("http://127.0.0.1:4000/dash/edit/" + selectedValue._id, form)
         .then((response) => {
@@ -83,7 +92,6 @@ const DiscussionForum = (props) => {
           }
         });
     } else {
-
       // Otherwise, it's a new post
       axiosInstance.post("http://127.0.0.1:4000/dash/add", form).then((res) => {
         alert(res.data);
@@ -91,36 +99,21 @@ const DiscussionForum = (props) => {
       });
     }
     setOpen(false);
-  };
+  }
+}
 
   // DELETE-------------------------
   function removeBlog(id) {
-    axiosInstance.delete("http://127.0.0.1:4000/dash/remove/" + id).then((res) => {
-      alert(res.data);
-      window.location.reload(false);
-    });
+    axiosInstance
+      .delete("http://127.0.0.1:4000/dash/remove/" + id)
+      .then((res) => {
+        alert(res.data);
+        window.location.reload(false);
+      });
   }
 
 
-
-  //Comment Section---------------------
-
-  // const [comment, setComment] = useState([]);
-  // const [comForm, setComform] = useState([]);
-
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:4000/comments/")
-  //     .then((res) => setComment(res.data))
-  //     .catch((err) => console.log(err));
-  // }, []);
-
-
-  const [userId, setUserId] = useState('');
-
-
-
-
+  const [userId, setUserId] = useState("");
 
   return (
     <div>
@@ -151,6 +144,7 @@ const DiscussionForum = (props) => {
                         Hello Interns, Here you can add your Queries..
                       </DialogContentText>
                       <TextField
+                      helperText={errors.title}
                         autoFocus
                         margin="dense"
                         id="name"
@@ -164,6 +158,7 @@ const DiscussionForum = (props) => {
                         }}
                       />
                       <TextField
+                       helperText={errors.query}
                         autoFocus
                         margin="dense"
                         id="name"
@@ -193,8 +188,14 @@ const DiscussionForum = (props) => {
 
       <br />
       {data.map((val, i) => (
-        <Grid key={i} sx={{padding:'2px 2px'}} container spacing={2} style={{ marginBottom: "8px" }}>
-          <Grid item  sm={9} md={11} >
+        <Grid
+          key={i}
+          sx={{ padding: "2px 2px" }}
+          container
+          spacing={2}
+          style={{ marginBottom: "8px" }}
+        >
+          <Grid item sm={9} md={11}>
             <Card sx={{ minWidth: 275 }}>
               <CardContent>
                 <Typography
@@ -216,19 +217,10 @@ const DiscussionForum = (props) => {
               </CardContent>
               <Divider />
 
-
-            <CommentList discussionId={val._id} />
- 
-
-
-     
-          
-              
-            
+              <CommentList discussionId={val._id} />
 
               <Divider />
-              <AddComment   discussionData={val._id}/>
-
+              <AddComment discussionData={val._id} />
             </Card>
           </Grid>
           <Grid item sm={3} md={1}>
@@ -239,12 +231,14 @@ const DiscussionForum = (props) => {
             </Grid>
 
             <Grid style={{ margin: "20px" }}>
-              <Button variant="outlined"     onClick={() => {
-                    removeBlog(val._id);
-                  }}>
+              <Button
+                variant="outlined"
+                onClick={() => {
+                  removeBlog(val._id);
+                }}
+              >
                 <DeleteRoundedIcon
                   style={{ fill: "#192A56", cursor: "pointer" }}
-              
                 />
               </Button>
             </Grid>
