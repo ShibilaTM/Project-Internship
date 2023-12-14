@@ -41,6 +41,13 @@ router.post('/project', verifytoken, async (req, res) => {
 
       const project = await Project.create(projectData);
 
+          // Update the user's document to mark project as submitted
+    await userData.findOneAndUpdate(
+      { email: userEmail },
+      { isprojectsubmitted: true },
+      { new: true }
+    );
+
       res.status(200).json({ message: 'Successfully submitted the project', projectId: project._id });
   } catch (error) {
       console.error(error);
