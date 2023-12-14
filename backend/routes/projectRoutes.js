@@ -7,7 +7,7 @@ router.use(cors());
 const jwt = require('jsonwebtoken');
 const admin = require('../model/adminModel');
 const userData = require('../model/userData')
-
+const prjctDeadline = require('../model/prjctDeadline')
 function verifytoken(req, res, next) {
     try {
         const token = req.headers.token;
@@ -23,7 +23,26 @@ function verifytoken(req, res, next) {
     }
 }
 
+//project report deadline
+router.get('/deadline', verifytoken, async (req, res) => {
+  try {
+    // Fetch the question and deadline from the database
+    const result = await prjctDeadline.findOne({});
 
+    if (!result) {
+      return res.status(404).json({ message: 'No deadline found' });
+    }
+
+    console.log('Deadline result:', result); // Log the result
+    res.status(200).json({ deadline: result.deadline });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Error fetching deadline', error: error.message });
+  }
+});
+
+
+//project report submission
 router.post('/project', verifytoken, async (req, res) => {
   try {
       const data = req.body;
@@ -49,6 +68,7 @@ router.post('/project', verifytoken, async (req, res) => {
     );
 
       res.status(200).json({ message: 'Successfully submitted the project', projectId: project._id });
+      
   } catch (error) {
       console.error(error);
       res.status(400).json({ success: false, message: 'Error in the submission', error: error.message });
@@ -57,7 +77,7 @@ router.post('/project', verifytoken, async (req, res) => {
 
 
 
-
+//weekly submission question and deadline
 
 router.get('/question', verifytoken, async (req, res) => {
     try {
@@ -76,7 +96,7 @@ router.get('/question', verifytoken, async (req, res) => {
   });
   
 
-
+//weekly submission route
 
 router.post('/subm',verifytoken, async (req, res) => {
     try {
