@@ -82,6 +82,7 @@ const Signup = () => {
       axios.post('http://localhost:4000/user/add', user)
       .then((res) => {
         alert('successfully registered');
+        window.location.reload(false);
         // Redirect to login page after successful registration
         // navigate('/login');
       })
