@@ -47,7 +47,7 @@ const Sidebar = ({ Children }) => {
       icon: < MdGrade />
     },
     {
-      path: '/',
+      path: '/logout',
       name: 'Logout',
       icon: <IoLogOut />
     }

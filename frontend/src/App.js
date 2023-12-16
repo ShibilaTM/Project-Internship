@@ -44,6 +44,7 @@ import Quiz4 from "./Quiz/Quiz4"
 import Quiz5 from "./Quiz/Quiz5"
 import Quiz6 from "./Quiz/Quiz6"
 import QuizSE from "./Quiz/QuizSE"
+import { Logout } from './protectroutes/Logout';
 
 
 
@@ -109,7 +110,7 @@ function App() {
                     <Route path='/Quiz5' element={<Auth><ProMain><Quiz5 /></ProMain></Auth>} />
                     <Route path='/Quiz6' element={<Auth><ProMain><Quiz6 /></ProMain></Auth>} />
 
-
+<Route path='/logout' element={<Logout/> }></Route> 
 
                 </Routes>
                 {/* <Internshipdynamicpage>
